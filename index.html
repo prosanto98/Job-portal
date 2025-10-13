@@ -19,7 +19,7 @@
 
     <!-- Custom Style -->
     <link href="css/main.css" rel="stylesheet" />
-<!-- nav -->
+    <!-- nav -->
     <style>
       /* Make header fixed */
       .header {
@@ -123,23 +123,24 @@
       }
     </style>
 
-    <!-- footer -->
+    <!-- footer start-->
     <style>
       .footerWrap {
         font-family: "Poppins", sans-serif;
+        background: #0a0a0a;
+        color: #bfc4cc;
       }
 
       .footerWrap p {
-        color: #bfc4cc;
         font-size: 0.95rem;
         line-height: 1.6;
+        color: #bfc4cc;
       }
 
       .footerWrap a {
         color: #bfc4cc;
         text-decoration: none;
         transition: all 0.3s ease;
-        display: inline-block;
       }
 
       .footerWrap a:hover {
@@ -147,7 +148,41 @@
         padding-left: 5px;
       }
 
+      .footerWrap h5 {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #ffffff;
+        margin-bottom: 15px;
+        position: relative;
+      }
+
+      .footerWrap h5::after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 2px;
+        background: #0d6efd;
+        margin: 6px 0 0;
+        border-radius: 2px;
+      }
+
+      .quicklinks li {
+        margin-bottom: 10px;
+      }
+
+      .quicklinks li a {
+        font-size: 0.95rem;
+      }
+
+      .footerWrap .social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15px;
+      }
+
       .footerWrap .social a {
+        margin: 0 8px;
         transition: transform 0.3s ease, color 0.3s ease;
       }
 
@@ -156,32 +191,23 @@
         color: #0d6efd !important;
       }
 
-      .footerWrap h5 {
-        font-weight: 600;
-        font-size: 1.05rem;
-      }
-
-      .footerWrap hr {
-        border-top: 1px solid #4a4a4a;
-      }
-
-      .quicklinks li {
-        margin-bottom: 10px;
+      hr {
+        border-color: #4a4a4a;
       }
 
       @media (max-width: 991.98px) {
-        .footerWrap .col-lg-3 {
+        .footerWrap .footer-col {
           margin-bottom: 30px;
         }
       }
 
       @media (max-width: 575.98px) {
-        .footerWrap .col-6 {
+        .footerWrap .footer-col {
           margin-bottom: 20px;
         }
       }
     </style>
-
+    <!-- footer end -->
     <!-- how it Works -->
     <style>
       .howitwrap {
@@ -261,58 +287,59 @@
     </style>
 
     <style>
-      /* ---------- Visa Card Styles ---------- */
-.visa-card {
-  background: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  padding: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-}
-.visa-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
+      /* small custom styling to match the example look */
+      .visa-card {
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 12px;
+        padding: 1.25rem;
+        text-align: center;
+        background: #fff;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        box-shadow: 0 2px 6px rgba(13, 38, 59, 0.04);
+      }
+      .visa-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 30px rgba(13, 38, 59, 0.08);
+      }
 
-.visa-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
+      .visa-card img.flag {
+        width: 48px;
+        height: 32px;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 0.9rem;
+        border-radius: 4px;
+      }
 
-.visa-available {
-  font-size: 0.9rem;
-  color: #6c757d;
-}
+      .visa-title {
+        font-weight: 600;
+        font-size: 1.05rem;
+        line-height: 1.2;
+      }
 
-.applybtn {
-  border-radius: 25px;
-  padding: 6px 18px;
-  font-size: 14px;
-  font-weight: 500;
-}
+      .visa-available {
+        color: #6b7280; /* gray-500 */
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+      }
 
-/* Flag image */
-.flag {
-  object-fit: cover;
-}
+      /* Button style matching example (rounded, solid blue) */
+      .visa-btn {
+        margin-top: 0.9rem;
+        width: 100%;
+        border-radius: 8px;
+        padding: 0.55rem 0.75rem;
+        font-weight: 600;
+        box-shadow: none;
+      }
 
-/* Responsive flag size */
-@media (max-width: 768px) {
-  .flag {
-    width: 50px;
-    height: 50px;
-  }
-}
-
-@media (max-width: 576px) {
-  .flag {
-    width: 40px;
-    height: 40px;
-  }
-}
-
+      /* "View all" button */
+      .view-all {
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
     </style>
   </head>
   <body>
@@ -332,7 +359,7 @@
                 data-target=".navbar-collapse"
               >
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
@@ -354,8 +381,12 @@
                       <li><a href="register.html">Register</a></li>
                       <li><a href="job-listing.html">Job Listing</a></li>
                       <li><a href="job-detail.html">Job Detail</a></li>
-                      <li><a href="candidate-listing.html">Candidate Listing</a></li>
-                      <li><a href="candidate-detail.html">Candidate Detail</a></li>
+                      <li>
+                        <a href="candidate-listing.html">Candidate Listing</a>
+                      </li>
+                      <li>
+                        <a href="candidate-detail.html">Candidate Detail</a>
+                      </li>
                       <li><a href="company-detail.html">Company Profile</a></li>
                       <li><a href="edit-profile.html">Edit Profile</a></li>
                       <li><a href="post-job.html">Post a Job</a></li>
@@ -367,18 +398,30 @@
                   </li>
                   <li><a href="blog-detail.html">Blog</a></li>
                   <li><a href="contact-us.html">Contact</a></li>
-                  <li class="postjob"><a href="post-job.html">Post a job</a></li>
-                  <li class="jobseeker"><a href="candidate-listing.html">Job Seeker</a></li>
+                  <li class="postjob">
+                    <a href="post-job.html">Post a job</a>
+                  </li>
+                  <li class="jobseeker">
+                    <a href="candidate-listing.html">Job Seeker</a>
+                  </li>
                   <li class="dropdown userbtn">
                     <a href="">
-                      <img src="images/candidates/01.jpg" alt="" class="userimg" />
+                      <img
+                        src="images/candidates/01.jpg"
+                        alt=""
+                        class="userimg"
+                      />
                     </a>
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="dashboard.html"><i class="fa fa-tachometer"></i> Dashboard</a>
+                        <a href="dashboard.html"
+                          ><i class="fa fa-tachometer"></i> Dashboard</a
+                        >
                       </li>
                       <li>
-                        <a href="#"><i class="fa fa-pencil"></i> Edit Profile</a>
+                        <a href="#"
+                          ><i class="fa fa-pencil"></i> Edit Profile</a
+                        >
                       </li>
                       <li>
                         <a href="#"><i class="fa fa-briefcase"></i> My Jobs</a>
@@ -449,7 +492,9 @@
 
         <!-- button start -->
         <div class="getstarted mt-4">
-          <a href="#."><i class="fa fa-user" aria-hidden="true"></i> Get Started Now</a>
+          <a href="#."
+            ><i class="fa fa-user" aria-hidden="true"></i> Get Started Now</a
+          >
         </div>
         <!-- button end -->
       </div>
@@ -472,7 +517,9 @@
               <i class="fa fa-user" aria-hidden="true"></i>
             </div>
             <h4 class="mb-2">Create An Account</h4>
-            <p class="mb-0">Let the world see your talent—sign up and get started today.</p>
+            <p class="mb-0">
+              Let the world see your talent—sign up and get started today.
+            </p>
           </li>
 
           <!--step 2-->
@@ -481,7 +528,10 @@
               <i class="fa fa-black-tie" aria-hidden="true"></i>
             </div>
             <h4 class="mb-2">Get Job Offer</h4>
-            <p class="mb-0">We give you endless opportunities. Pick your dream job and secure your offer today.</p>
+            <p class="mb-0">
+              We give you endless opportunities. Pick your dream job and secure
+              your offer today.
+            </p>
           </li>
 
           <!--step 3-->
@@ -490,7 +540,10 @@
               <i class="fa fa-file-text" aria-hidden="true"></i>
             </div>
             <h4 class="mb-2">Visa Process & Fly abroad</h4>
-            <p class="mb-0">Process your visa with our verified agents and fly abroad with confidence.</p>
+            <p class="mb-0">
+              Process your visa with our verified agents and fly abroad with
+              confidence.
+            </p>
           </li>
         </ul>
       </div>
@@ -499,185 +552,238 @@
     <!-- How it Works Ends -->
 
     <!-- Top Featured Countries Start -->
-<!-- Top Featured Countries Start -->
-<div class="container my-5">
-  <div class="text-center mb-4">
-    <h3>Featured <span>Countries</span></h3>
-  </div>
+    <div class="container">
+      <div class="text-center mb-4">
+        <h3 class="mb-1">
+          Available <span style="color: #0d6efd">Visas</span>
+        </h3>
+      </div>
 
-  <div class="row g-4">
-    <!-- Card 1 -->
-    <div class="col-12 col-sm-6 col-md-4">
-      <div class="visa-card p-3 shadow-sm rounded-3 h-100 d-flex flex-column justify-content-between">
-        <div class="d-flex align-items-center mb-3">
-          <img src="images/world-flag.png" alt="Saudi" class="flag me-3" style="width:60px; height:60px; border-radius:10px; object-fit:cover;">
-          <div>
-            <h5 class="visa-title mb-1">Saudi Driver Visa</h5>
-            <p class="visa-available mb-0">80 Available</p>
+      <!-- Grid: each column will be 12 on xs, 6 on sm, 4 on md+ (=> 1,2,3 per row) -->
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="visa-card h-100">
+            <img src="images/flags/saudi.png" alt="Saudi" class="flag" />
+            <h4 class="visa-title">Saudi Driver Visa</h4>
+            <p class="visa-available">80 Available</p>
+            <button class="btn btn-primary visa-btn">Apply Now</button>
           </div>
         </div>
-        <button class="btn btn-primary applybtn mt-3">Apply Now</button>
-      </div>
-    </div>
 
-    <!-- Card 2 -->
-    <div class="col-12 col-sm-6 col-md-4">
-      <div class="visa-card p-3 shadow-sm rounded-3 h-100 d-flex flex-column justify-content-between">
-        <div class="d-flex align-items-center mb-3">
-          <img src="images/romania.png" alt="Romania" class="flag me-3" style="width:60px; height:60px; border-radius:10px; object-fit:cover;">
-          <div>
-            <h5 class="visa-title mb-1">Romania Welder Visa</h5>
-            <p class="visa-available mb-0">20 Visas Available</p>
+        <!-- Card 2 -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="visa-card h-100">
+            <img src="images/flags/romania.png" alt="Romania" class="flag" />
+            <h4 class="visa-title">Romania Welder Visa</h4>
+            <p class="visa-available">20 Visas Available</p>
+            <button class="btn btn-primary visa-btn">Apply Now</button>
           </div>
         </div>
-        <button class="btn btn-primary applybtn mt-3">Apply Now</button>
-      </div>
-    </div>
 
-    <!-- Card 3 -->
-    <div class="col-12 col-sm-6 col-md-4">
-      <div class="visa-card p-3 shadow-sm rounded-3 h-100 d-flex flex-column justify-content-between">
-        <div class="d-flex align-items-center mb-3">
-          <img src="images/malaysia.png" alt="Malaysia" class="flag me-3" style="width:60px; height:60px; border-radius:10px; object-fit:cover;">
-          <div>
-            <h5 class="visa-title mb-1">Malaysia Factory Visa</h5>
-            <p class="visa-available mb-0">50 Visas Available</p>
+        <!-- Card 3 -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="visa-card h-100">
+            <img src="images/flags/malaysia.png" alt="Malaysia" class="flag" />
+            <h4 class="visa-title">Malaysia Factory Visa</h4>
+            <p class="visa-available">50 Visas Available</p>
+            <button class="btn btn-primary visa-btn">Apply Now</button>
           </div>
         </div>
-        <button class="btn btn-primary applybtn mt-3">Apply Now</button>
+
+        <!-- Card 4 -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="visa-card h-100">
+            <img src="images/flags/qatar.png" alt="Qatar" class="flag" />
+            <h4 class="visa-title">Qatar Catering Visa</h4>
+            <p class="visa-available">65 Available</p>
+            <button class="btn btn-primary visa-btn">Apply Now</button>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="visa-card h-100">
+            <img src="images/flags/uae.png" alt="UAE" class="flag" />
+            <h4 class="visa-title">UAE Security Visa</h4>
+            <p class="visa-available">30 Visas Available</p>
+            <button class="btn btn-primary visa-btn">Apply Now</button>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <div class="visa-card h-100">
+            <img src="images/flags/oman.png" alt="Oman" class="flag" />
+            <h4 class="visa-title">Oman Technician Visa</h4>
+            <p class="visa-available">28 Available</p>
+            <button class="btn btn-primary visa-btn">Apply Now</button>
+          </div>
+        </div>
       </div>
+      <!--view button-->
+      <div class="viewallbtn"><a href="#.">View All Latest Jobs</a></div>
+      <!--view button end-->
     </div>
-
-    <!-- Add more cards similarly -->
-  </div>
-</div>
-<!-- Top Featured Countries End -->
-
-<!-- Top Featured Countries End -->
-
+    <!-- Top Featured Countries End -->
 
     <!-- Featured Works start -->
-      <div class="section greybg py-5">
-        <div class="container">
-          <div class="titleTop text-center mb-4">
-            <h3 class="mb-0">Featured <span>Workers</span></h3>
-          </div>
+    <div class="section greybg py-5">
+      <div class="container">
+        <div class="titleTop text-center mb-4">
+          <h3 class="mb-0">Featured <span>Workers</span></h3>
+        </div>
 
-          <div class="row g-4">
-            <!-- 🔹 Card 1 -->
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="worker-card text-start h-100">
-                <img src="images/handsome-demo.jpg" alt="Worker" class="img-fluid worker-img" />
-                <div class="worker-content">
-                  <h5 class="worker-title">Technical Database Engineer</h5>
-                  <p class="worker-company">Database Management Company</p>
-                  <div class="d-flex align-items-center mb-3">
-                    <span class="badge job-badge fulltime">Full Time</span>
-                    <span class="ms-2 text-muted small">New York</span>
-                  </div>
-                  <div class="text-center">
-                    <a href="#." class="btn btn-primary btn-sm applybtn">Apply Now</a>
-                  </div>
+        <div class="row g-4">
+          <!-- 🔹 Card 1 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="worker-card text-start h-100">
+              <img
+                src="images/handsome-demo.jpg"
+                alt="Worker"
+                class="img-fluid worker-img"
+              />
+              <div class="worker-content">
+                <h5 class="worker-title">Technical Database Engineer</h5>
+                <p class="worker-company">Database Management Company</p>
+                <div class="d-flex align-items-center mb-3">
+                  <span class="badge job-badge fulltime">Full Time</span>
+                  <span class="ms-2 text-muted small">New York</span>
                 </div>
-              </div>
-            </div>
-
-            <!-- 🔹 Card 2 -->
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="worker-card text-start h-100">
-                <img src="images/handsome-demo.jpg" alt="Worker" class="img-fluid worker-img" />
-                <div class="worker-content">
-                  <h5 class="worker-title">Frontend Web Developer</h5>
-                  <p class="worker-company">Creative IT Agency</p>
-                  <div class="d-flex align-items-center mb-3">
-                    <span class="badge job-badge partTime">Part Time</span>
-                    <span class="ms-2 text-muted small">London</span>
-                  </div>
-                  <div class="text-center">
-                    <a href="#." class="btn btn-primary btn-sm applybtn">Apply Now</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 🔹 Card 3 -->
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="worker-card text-start h-100">
-                <img src="images/handsome-demo.jpg" alt="Worker" class="img-fluid worker-img" />
-                <div class="worker-content">
-                  <h5 class="worker-title">UI/UX Designer</h5>
-                  <p class="worker-company">Pixel Studio</p>
-                  <div class="d-flex align-items-center mb-3">
-                    <span class="badge job-badge freelance">Freelancer</span>
-                    <span class="ms-2 text-muted small">Dhaka</span>
-                  </div>
-                  <div class="text-center">
-                    <a href="#." class="btn btn-primary btn-sm applybtn">Apply Now</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 🔹 Card 4 -->
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="worker-card text-start h-100">
-                <img src="images/handsome-demo.jpg" alt="Worker" class="img-fluid worker-img" />
-                <div class="worker-content">
-                  <h5 class="worker-title">Backend Engineer</h5>
-                  <p class="worker-company">TechnoSoft Inc.</p>
-                  <div class="d-flex align-items-center mb-3">
-                    <span class="badge job-badge fulltime">Full Time</span>
-                    <span class="ms-2 text-muted small">San Francisco</span>
-                  </div>
-                  <div class="text-center">
-                    <a href="#." class="btn btn-primary btn-sm applybtn">Apply Now</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 🔹 Card 5 -->
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="worker-card text-start h-100">
-                <img src="images/handsome-demo.jpg" alt="Worker" class="img-fluid worker-img" />
-                <div class="worker-content">
-                  <h5 class="worker-title">Mobile App Developer</h5>
-                  <p class="worker-company">SmartDev Studio</p>
-                  <div class="d-flex align-items-center mb-3">
-                    <span class="badge job-badge partTime">Part Time</span>
-                    <span class="ms-2 text-muted small">Singapore</span>
-                  </div>
-                  <div class="text-center">
-                    <a href="#." class="btn btn-primary btn-sm applybtn">Apply Now</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 🔹 Card 6 -->
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="worker-card text-start h-100">
-                <img src="images/handsome-demo.jpg" alt="Worker" class="img-fluid worker-img" />
-                <div class="worker-content">
-                  <h5 class="worker-title">SEO Specialist</h5>
-                  <p class="worker-company">Digital Boost Agency</p>
-                  <div class="d-flex align-items-center mb-3">
-                    <span class="badge job-badge freelance">Freelancer</span>
-                    <span class="ms-2 text-muted small">Toronto</span>
-                  </div>
-                  <div class="text-center">
-                    <a href="#." class="btn btn-primary btn-sm applybtn">Apply Now</a>
-                  </div>
+                <div class="text-center">
+                  <a href="#." class="btn btn-primary btn-sm applybtn"
+                    >Apply Now</a
+                  >
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="viewallbtn text-center mt-5">
-            <a href="job-listing.html" class="btn btn-outline-secondary">View All Featured Jobs</a>
+          <!-- 🔹 Card 2 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="worker-card text-start h-100">
+              <img
+                src="images/handsome-demo.jpg"
+                alt="Worker"
+                class="img-fluid worker-img"
+              />
+              <div class="worker-content">
+                <h5 class="worker-title">Frontend Web Developer</h5>
+                <p class="worker-company">Creative IT Agency</p>
+                <div class="d-flex align-items-center mb-3">
+                  <span class="badge job-badge partTime">Part Time</span>
+                  <span class="ms-2 text-muted small">London</span>
+                </div>
+                <div class="text-center">
+                  <a href="#." class="btn btn-primary btn-sm applybtn"
+                    >Apply Now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🔹 Card 3 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="worker-card text-start h-100">
+              <img
+                src="images/handsome-demo.jpg"
+                alt="Worker"
+                class="img-fluid worker-img"
+              />
+              <div class="worker-content">
+                <h5 class="worker-title">UI/UX Designer</h5>
+                <p class="worker-company">Pixel Studio</p>
+                <div class="d-flex align-items-center mb-3">
+                  <span class="badge job-badge freelance">Freelancer</span>
+                  <span class="ms-2 text-muted small">Dhaka</span>
+                </div>
+                <div class="text-center">
+                  <a href="#." class="btn btn-primary btn-sm applybtn"
+                    >Apply Now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🔹 Card 4 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="worker-card text-start h-100">
+              <img
+                src="images/handsome-demo.jpg"
+                alt="Worker"
+                class="img-fluid worker-img"
+              />
+              <div class="worker-content">
+                <h5 class="worker-title">Backend Engineer</h5>
+                <p class="worker-company">TechnoSoft Inc.</p>
+                <div class="d-flex align-items-center mb-3">
+                  <span class="badge job-badge fulltime">Full Time</span>
+                  <span class="ms-2 text-muted small">San Francisco</span>
+                </div>
+                <div class="text-center">
+                  <a href="#." class="btn btn-primary btn-sm applybtn"
+                    >Apply Now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🔹 Card 5 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="worker-card text-start h-100">
+              <img
+                src="images/handsome-demo.jpg"
+                alt="Worker"
+                class="img-fluid worker-img"
+              />
+              <div class="worker-content">
+                <h5 class="worker-title">Mobile App Developer</h5>
+                <p class="worker-company">SmartDev Studio</p>
+                <div class="d-flex align-items-center mb-3">
+                  <span class="badge job-badge partTime">Part Time</span>
+                  <span class="ms-2 text-muted small">Singapore</span>
+                </div>
+                <div class="text-center">
+                  <a href="#." class="btn btn-primary btn-sm applybtn"
+                    >Apply Now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🔹 Card 6 -->
+          <div class="col-12 col-sm-6 col-md-4">
+            <div class="worker-card text-start h-100">
+              <img
+                src="images/handsome-demo.jpg"
+                alt="Worker"
+                class="img-fluid worker-img"
+              />
+              <div class="worker-content">
+                <h5 class="worker-title">SEO Specialist</h5>
+                <p class="worker-company">Digital Boost Agency</p>
+                <div class="d-flex align-items-center mb-3">
+                  <span class="badge job-badge freelance">Freelancer</span>
+                  <span class="ms-2 text-muted small">Toronto</span>
+                </div>
+                <div class="text-center">
+                  <a href="#." class="btn btn-primary btn-sm applybtn"
+                    >Apply Now</a
+                  >
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <!--view button-->
+        <div class="viewallbtn"><a href="#.">View All Latest Jobs</a></div>
+        <!--view button end-->
       </div>
+    </div>
     <!-- Featured Works ends -->
 
     <!-- Work Category start -->
@@ -953,11 +1059,15 @@
     <!-- App End -->
 
     <!--Footer-->
+    <!-- Footer -->
     <footer class="footerWrap bg-dark text-light pt-5">
       <div class="container">
-        <div class="row gy-5 justify-content-between">
+        <!-- Footer Columns -->
+        <div
+          class="footer-row d-flex justify-content-between flex-wrap text-center text-md-start"
+        >
           <!-- 1. About Us -->
-          <div class="col-lg-3 col-md-6 col-12">
+          <div class="footer-col col-lg-3 col-md-6 col-12 mb-4">
             <div class="ft-logo mb-3">
               <img src="images/logo.png" alt="Logo" class="img-fluid" />
             </div>
@@ -967,28 +1077,30 @@
               unlock endless opportunities to grow their careers.
             </p>
             <!-- Social Icons -->
-            <div class="social mt-3">
-              <a href="#." class="text-light fs-4 me-2"
+            <div
+              class="social mt-3 d-flex justify-content-center justify-content-md-start"
+            >
+              <a href="#." class="text-light fs-4 mx-2"
                 ><i class="fa fa-facebook-square"></i
               ></a>
-              <a href="#." class="text-light fs-4 me-2"
+              <a href="#." class="text-light fs-4 mx-2"
                 ><i class="fa fa-twitter-square"></i
               ></a>
-              <a href="#." class="text-light fs-4 me-2"
+              <a href="#." class="text-light fs-4 mx-2"
                 ><i class="fa fa-google-plus-square"></i
               ></a>
-              <a href="#." class="text-light fs-4 me-2"
+              <a href="#." class="text-light fs-4 mx-2"
                 ><i class="fa fa-linkedin-square"></i
               ></a>
-              <a href="#." class="text-light fs-4"
+              <a href="#." class="text-light fs-4 mx-2"
                 ><i class="fa fa-youtube-square"></i
               ></a>
             </div>
           </div>
 
           <!-- 2. Quick Links -->
-          <div class="col-lg-3 col-md-6 col-6">
-            <h5 class="text-white mb-3">Quick Links</h5>
+          <div class="footer-col col-lg-3 col-md-6 col-6 mb-4">
+            <h5>Quick Links</h5>
             <ul class="list-unstyled quicklinks">
               <li><a href="#.">Career Services</a></li>
               <li><a href="#.">CV Writing</a></li>
@@ -998,8 +1110,8 @@
           </div>
 
           <!-- 3. More Links -->
-          <div class="col-lg-3 col-md-6 col-6">
-            <h5 class="text-white mb-3">More Links</h5>
+          <div class="footer-col col-lg-3 col-md-6 col-6 mb-4">
+            <h5>More Links</h5>
             <ul class="list-unstyled quicklinks">
               <li><a href="#.">Success Stories</a></li>
               <li><a href="#.">Contact Us</a></li>
@@ -1009,8 +1121,8 @@
           </div>
 
           <!-- 4. Support -->
-          <div class="col-lg-3 col-md-6 col-12">
-            <h5 class="text-white mb-3">Support</h5>
+          <div class="footer-col col-lg-3 col-md-6 col-12 mb-4">
+            <h5>Support</h5>
             <ul class="list-unstyled quicklinks">
               <li><a href="#.">FAQ</a></li>
               <li><a href="#.">Privacy Policy</a></li>
@@ -1019,21 +1131,18 @@
             </ul>
           </div>
         </div>
-    </footer>
-    <!--Footer end-->
 
-    <!--Copyright-->
-    <div class="copyright">
-      <div class="container">
-        <div class="bttxt">
-          Copyright &copy; 2025 Job Portal. All Rights Reserved. Design
-          by:
-          <a href="http://graphicriver.net/user/ecreativesol" target="_blank"
-            >eCreativeSolutions</a
-          >
+        <hr class="mt-4 mb-3" />
+
+        <!-- Copyright -->
+        <div class="text-center pb-4">
+          <p class="mb-0">
+            &copy; 2025 Prime Work Solutions. All Rights Reserved.
+          </p>
         </div>
       </div>
-    </div>
+    </footer>
+    <!--Footer end-->
 
     <!-- Bootstrap's JavaScript -->
     <script src="js/jquery-2.1.4.min.js"></script>
