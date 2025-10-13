@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Job Portal HTML</title>
+    <!-- Fav Icon -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- Owl carousel -->
+    <link href="css/owl.carousel.css" rel="stylesheet" />
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.css" rel="stylesheet" />
+
+    <!-- Custom Style -->
+    <link href="css/main.css" rel="stylesheet" />
+    <style>
+      /* Make header fixed */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Prevent content from hiding under header */
+      body {
+        padding-top: 80px; /* adjust if your header height differs */
+      }
+
+      /* Optional: smooth effect on scroll */
+      .header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      /* Background */
+      .bg-gradient {
+        background: linear-gradient(135deg, #eef4ff 0%, #e2ecff 100%);
+      }
+
+      /* Title styling */
+      .titleTop h3 {
+        font-size: clamp(1.8rem, 2.4vw, 2.3rem);
+        letter-spacing: -0.4px;
+      }
+
+      .titleTop span {
+        color: #0d6efd;
+      }
+
+      .titleTop p {
+        font-size: 1rem;
+        color: #6c757d;
+      }
+
+      /* Category cards */
+      .category-item {
+        display: block;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 20px 24px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #212529;
+        border: 1px solid #e4e9f1;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+        text-align: left;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Gap control between cards */
+      .row > [class*="col-"] {
+        padding: 10px 12px;
+      }
+
+      .category-item span {
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #0d6efd; /* number color */
+        font-weight: 600;
+        transition: color 0.3s ease;
+      }
+
+      .category-item:hover {
+        background: linear-gradient(90deg, #0d6efd, #4dabf7);
+        color: #fff;
+        transform: translateY(-6px) scale(1.015);
+        border-color: transparent;
+        box-shadow: 0 10px 22px rgba(13, 110, 253, 0.25);
+      }
+
+      .category-item:hover span {
+        color: #fff; /* white when hover */
+      }
+
+      /* Responsive */
+      @media (max-width: 767.98px) {
+        .category-item {
+          text-align: center;
+          padding: 18px;
+        }
+
+        .category-item span {
+          position: static;
+          display: block;
+          transform: none;
+          margin-top: 6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header start -->
+    <div class="header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-sm-3 col-xs-12">
+            <a href="index.html" class="logo">
+              <img src="images/logo.png" alt="" />
+            </a>
+            <div class="navbar-header">
+              <button
+                type="button"
+                class="navbar-toggle"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
+              >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-md-10 col-sm-12 col-xs-12">
+            <!-- Nav start -->
+            <div class="navbar navbar-default" role="navigation">
+              <div class="navbar-collapse collapse" id="nav-main">
+                <ul class="nav navbar-nav center-nav">
+                  <li class="dropdown active"><a href="index.html">Home</a></li>
+                  <li><a href="about-us.html">About us</a></li>
+                  <li class="dropdown">
+                    <a href="#.">Pages <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="about-us.html">About Us</a></li>
+                      <li><a href="login.html">Login</a></li>
+                      <li><a href="register.html">Register</a></li>
+                      <li><a href="job-listing.html">Job Listing</a></li>
+                      <li><a href="job-detail.html">Job Detail</a></li>
+                      <li>
+                        <a href="candidate-listing.html">Candidate Listing</a>
+                      </li>
+                      <li>
+                        <a href="candidate-detail.html">Candidate Detail</a>
+                      </li>
+                      <li><a href="company-detail.html">Company Profile</a></li>
+                      <li><a href="edit-profile.html">Edit Profile</a></li>
+                      <li><a href="post-job.html">Post a Job</a></li>
+                      <li><a href="packages.html">Packages</a></li>
+                      <li><a href="faqs.html">FAQs</a></li>
+                      <li><a href="404.html">404 Page</a></li>
+                      <li><a href="typography.html">Typography</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="blog-detail.html">Blog</a></li>
+                  <li><a href="contact-us.html">Contact</a></li>
+                  <li class="postjob">
+                    <a href="post-job.html">Post a job</a>
+                  </li>
+                  <li class="jobseeker">
+                    <a href="candidate-listing.html">Job Seeker</a>
+                  </li>
+                  <li class="dropdown userbtn">
+                    <a href="">
+                      <img
+                        src="images/candidates/01.jpg"
+                        alt=""
+                        class="userimg"
+                      />
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="dashboard.html"
+                          ><i class="fa fa-tachometer"></i> Dashboard</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-pencil"></i> Edit Profile</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"><i class="fa fa-briefcase"></i> My Jobs</a>
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- Nav end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header end -->
+
+    <div class="about-wraper">
+      <!-- About -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h2>Our Perfect Platform</h2>
+            <p>
+              Prime Work Solutions is a trusted global platform connecting job
+              seekers with reputable international employers. We specialize in
+              overseas recruitment, work visa support, and employment management
+              — helping people and businesses achieve success beyond borders. We
+              focus on transparency, trust, and customized solutions that meet
+              the unique needs of every client. Our dedicated experts manage
+              each step of the recruitment and visa process with precision and
+              professionalism. By combining technology with human expertise, we
+              make international hiring simple, secure, and efficient. Whether
+              you’re searching for your dream job abroad or looking to hire
+              skilled global talent, we make it happen seamlessly. At Prime Work
+              Solutions, we’re committed to empowering people, growing
+              businesses, and building global success stories.
+            </p>
+          </div>
+          <div class="col-md-5">
+            <div class="postimg">
+              <img src="images/about-us-img1.jpg" alt="your alt text" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="what_we_do">
+        <div class="container">
+          <div class="main-heading">Why We’re Different</div>
+          <ul class="row whatList">
+            <li class="col-md-4 col-sm-6">
+              <div class="iconWrap">
+                <div class="icon">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                </div>
+              </div>
+              <h3>For Job Seekers</h3>
+              <p>
+                Create your profile, explore thousands of overseas jobs, and
+                apply with just one click. We guide you through every step so
+                you can achieve your dream career abroad.
+              </p>
+            </li>
+            <li class="col-md-4 col-sm-6">
+              <div class="iconWrap">
+                <div class="icon"><i class="fa fa-file-text"></i></div>
+              </div>
+              <h3>For Companies</h3>
+              <p>
+                Find skilled and verified candidates quickly. Our advanced tools
+                help you post jobs, manage applications, and connect with
+                workers who match your needs perfectly.
+              </p>
+            </li>
+            <li class="col-md-4 col-sm-6">
+              <div class="iconWrap">
+                <div class="icon">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i>
+                </div>
+              </div>
+              <h3>From us</h3>
+              <p>
+                We connect job seekers with global opportunities and help
+                companies hire skilled talent efficiently to drive business
+                success.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="textrow">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <h2>Our Mission</h2>
+              <p class="text-center">
+                Our mission is simple to make global opportunities accessible,
+                transparent, and reliable for everyone. Whether you’re a skilled
+                professional looking to build your career abroad or an employer
+                seeking qualified talent, Prime Work Solutions provides the
+                tools and support to make it happen.<br />
+                <br />
+                With a dedicated team and an innovative system, we ensure a
+                seamless process from job posting and candidate selection to
+                final placement. We believe in building trust, delivering
+                quality, and creating lasting partnerships that empower both
+                individuals and organizations to grow globally.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <div class="footerWrap">
+      <div class="container">
+        <div class="row">
+          <!--About Us-->
+          <div class="col-md-3 col-sm-12">
+            <div class="ft-logo">
+              <img src="images/logo.png" alt="Your alt text here" />
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et
+              consequat elit. Proin molestie eros sed urna auctor lobortis.
+              Integer eget scelerisque arcu. Pellentesque scelerisque
+              pellentesque nisl, sit amet aliquam mi pellentesque fringilla. Ut
+              porta augue a libero pretium laoreet. Suspendisse sit amet massa
+              accumsan, pulvinar augue id, tristique tortor.
+            </p>
+
+            <!-- Social Icons -->
+            <div class="social">
+              <a href="#." target="_blank">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i
+              ></a>
+              <a href="#." target="_blank"
+                ><i class="fa fa-twitter-square" aria-hidden="true"></i
+              ></a>
+              <a href="#." target="_blank"
+                ><i class="fa fa-google-plus-square" aria-hidden="true"></i
+              ></a>
+              <a href="#." target="_blank"
+                ><i class="fa fa-linkedin-square" aria-hidden="true"></i
+              ></a>
+              <a href="#." target="_blank"
+                ><i class="fa fa-youtube-square" aria-hidden="true"></i
+              ></a>
+            </div>
+            <!-- Social Icons end -->
+          </div>
+          <!--About us End-->
+
+          <!--Quick Links-->
+          <div class="col-md-2 col-sm-6">
+            <h5>Quick Links</h5>
+            <!--Quick Links menu Start-->
+            <ul class="quicklinks">
+              <li><a href="#.">Career Services</a></li>
+              <li><a href="#.">CV Writing</a></li>
+              <li><a href="#.">Career Resources</a></li>
+              <li><a href="#.">Company Listings</a></li>
+              <li><a href="#.">Success Stories</a></li>
+              <li><a href="#.">Contact Us</a></li>
+              <li><a href="#.">Create Account</a></li>
+              <li><a href="#.">Post a Job</a></li>
+              <li><a href="#.">Contact Sales</a></li>
+            </ul>
+          </div>
+          <!--Quick Links menu end-->
+
+          <!--Jobs By Industry-->
+          <div class="col-md-3 col-sm-6">
+            <h5>Jobs By Industry</h5>
+            <!--Industry menu Start-->
+            <ul class="quicklinks">
+              <li><a href="#.">Information Technology Jobs</a></li>
+              <li><a href="#.">Recruitment/Employment Firms Jobs</a></li>
+              <li><a href="#.">Education/Training Jobs</a></li>
+              <li><a href="#.">Manufacturing Jobs</a></li>
+              <li><a href="#.">Call Center Jobs</a></li>
+              <li><a href="#.">N.G.O./Social Services Jobs</a></li>
+              <li><a href="#.">BPO Jobs</a></li>
+              <li><a href="#.">Textiles/Garments Jobs</a></li>
+              <li><a href="#.">Telecommunication/ISP Jobs</a></li>
+            </ul>
+            <!--Industry menu End-->
+            <div class="clear"></div>
+          </div>
+
+          <!--Latest Articles-->
+          <div class="col-md-4 col-sm-12">
+            <h5>Latest Articles</h5>
+            <ul class="posts-list">
+              <!--Article 1-->
+              <li>
+                <article class="post post-list">
+                  <div class="entry-content media">
+                    <div class="media-left">
+                      <a href="#." title="" class="entry-image">
+                        <img
+                          width="80"
+                          height="80"
+                          src="images/news-1.jpg"
+                          alt="Your alt text here"
+                        />
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="entry-title">
+                        <a href="#.">Sed fermentum at lectus nec porta.</a>
+                      </h4>
+                      <div class="entry-content-inner">
+                        <div class="entry-meta">
+                          <span class="entry-date">Jan 28, 2016</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <!--Article end 1-->
+
+              <!--Article 2-->
+              <li>
+                <article class="post post-list">
+                  <div class="entry-content media">
+                    <div class="media-left">
+                      <a href="#." title="" class="entry-image">
+                        <img
+                          width="80"
+                          height="80"
+                          src="images/news-2.jpg"
+                          alt="Your alt text here"
+                        />
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="entry-title">
+                        <a href="#.">Sed fermentum at lectus nec porta.</a>
+                      </h4>
+                      <div class="entry-content-inner">
+                        <div class="entry-meta">
+                          <span class="entry-date">Jan 28, 2016</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <!--Article end 2-->
+
+              <!--Article 3-->
+              <li>
+                <article class="post post-list">
+                  <div class="entry-content media">
+                    <div class="media-left">
+                      <a href="#." title="" class="entry-image">
+                        <img
+                          width="80"
+                          height="80"
+                          src="images/news-3.jpg"
+                          alt="Your alt text here"
+                        />
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="entry-title">
+                        <a href="#.">Sed fermentum at lectus nec porta.</a>
+                      </h4>
+                      <div class="entry-content-inner">
+                        <div class="entry-meta">
+                          <span class="entry-date">Jan 28, 2016</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </li>
+              <!--Article end 3-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Footer end-->
+
+    <!--Copyright-->
+    <div class="copyright">
+      <div class="container">
+        <div class="bttxt">
+          Copyright &copy; 2017 Your Company Name. All Rights Reserved. Design
+          by:
+          <a href="http://graphicriver.net/user/ecreativesol" target="_blank"
+            >eCreativeSolutions</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap's JavaScript -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Owl carousel -->
+    <script src="js/owl.carousel.js"></script>
+
+    <!-- Custom js -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
