@@ -493,7 +493,7 @@ h6 {
 
 /************************************************
            ==Header css==
-*************************************************/ 
+*************************************************/
 .header {
   padding: 0;
 }
@@ -1229,8 +1229,6 @@ a.wit-btn {
   color: #6aca00;
 }
 
-
-
 /************************************************
            == Worker Card Styles==
 *************************************************/
@@ -1307,9 +1305,6 @@ a.wit-btn {
     height: 160px;
   }
 }
-
-
-
 
 /************************************************
            == Home Jobs css==
@@ -2469,7 +2464,7 @@ a.wit-btn {
 	About Us
 ****************************/
 .about-wraper {
-  padding: 100px 0;
+  padding: 56px 0;
 }
 .about-wraper h2 {
   font-size: 36px;
@@ -2484,7 +2479,7 @@ a.wit-btn {
 .what_we_do {
   padding: 50px 0;
   background: #f8f8f8;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .what_we_do .main-heading {
   color: #263bd6;
