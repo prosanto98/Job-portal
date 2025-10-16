@@ -33,13 +33,16 @@
               <button
                 type="button"
                 class="navbar-toggle"
-                data-toggle="collapse"
-                data-target=".navbar-collapse"
+                id="navToggle"
+                aria-controls="nav-main"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
               >
-                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <span class="close-icon">&times;</span>
+                <!-- cross icon -->
               </button>
             </div>
           </div>
@@ -227,14 +230,14 @@
     <!-- Footer -->
     <footer class="footerWrap">
       <div class="container">
-        <div class="row text-left footer-cols">
+        <div class="row gx-5 gy-4 text-left footer-cols">
           <!-- Column 1 -->
-          <div class="col-md-3 col-sm-6 col-xs-12 footer-col">
-            <div class="ft-logo">
+          <div class="col-lg-3 col-md-6 footer-col">
+            <div class="ft-logo mb-3">
               <img
                 src="images/logo.png"
                 alt="Logo"
-                class="img-responsive"
+                class="img-fluid"
                 style="max-width: 160px"
               />
             </div>
@@ -246,59 +249,57 @@
           </div>
 
           <!-- Column 2 -->
-          <div class="col-md-3 col-sm-6 col-xs-12 footer-col">
+          <div class="col-lg-3 col-md-6 footer-col">
             <h5>Quick Links</h5>
             <ul class="list-unstyled quicklinks">
-              <li><a href="#">Career Services</a></li>
-              <li><a href="#">CV Writing</a></li>
-              <li><a href="#">Career Resources</a></li>
-              <li><a href="#">Company Listings</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Job Details</a></li>
             </ul>
           </div>
 
           <!-- Column 3 -->
-          <div class="col-md-3 col-sm-6 col-xs-12 footer-col">
+          <div class="col-lg-3 col-md-6 footer-col">
             <h5>More Links</h5>
             <ul class="list-unstyled quicklinks">
-              <li><a href="#">Success Stories</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Create Account</a></li>
+              <li><a href="#">Blog</a></li>
               <li><a href="#">Post a Job</a></li>
+              <li><a href="#">Find a Job</a></li>
+              <li><a href="#">Partners</a></li>
             </ul>
           </div>
 
           <!-- Column 4 -->
-          <div class="col-md-3 col-sm-6 col-xs-12 footer-col">
+          <div class="col-lg-3 col-md-6 footer-col">
             <h5>Support</h5>
             <ul class="list-unstyled quicklinks">
               <li><a href="#">FAQ</a></li>
               <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Conditions</a></li>
-              <li><a href="#">Contact Sales</a></li>
+              <li><a href="#">Terms & Services</a></li>
+              <li><a href="#">Affiliate Program</a></li>
             </ul>
           </div>
         </div>
 
-        <!-- Social Icons Centered -->
-        <div class="row">
-          <div class="col-xs-12 text-center">
-            <div class="social">
-              <a href="#" class="social-link"
-                ><i class="fa fa-facebook-square"></i
-              ></a>
-              <a href="#" class="social-link"
-                ><i class="fa fa-twitter-square"></i
-              ></a>
-              <a href="#" class="social-link"
-                ><i class="fa fa-google-plus-square"></i
-              ></a>
-              <a href="#" class="social-link"
-                ><i class="fa fa-linkedin-square"></i
-              ></a>
-              <a href="#" class="social-link"
-                ><i class="fa fa-youtube-square"></i
-              ></a>
-            </div>
+        <!-- Social Icons -->
+        <div class="text-center mt-4">
+          <div class="social">
+            <a href="#" class="social-link"
+              ><i class="fa fa-facebook-square"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa fa-twitter-square"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa fa-google-plus-square"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa fa-linkedin-square"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa fa-youtube-square"></i
+            ></a>
           </div>
         </div>
       </div>
@@ -309,8 +310,7 @@
     <div class="copyright">
       <div class="container">
         <div class="bttxt">
-          Copyright &copy; 2017 Your Company Name. All Rights Reserved. Design
-          by:
+          Copyright &copy; 2025 Job Portal. All Rights Reserved. Design by:
           <a href="http://graphicriver.net/user/ecreativesol" target="_blank"
             >eCreativeSolutions</a
           >
@@ -325,6 +325,60 @@
     <!-- Owl carousel -->
     <script src="js/owl.carousel.js"></script>
 
+    <!-- Navbar collapse start -->
+    <script>
+      (function () {
+        var header = document.querySelector(".header");
+        var toggle = document.querySelector("#navToggle");
+        var collapse = document.querySelector("#nav-main");
+
+        function setHeaderVar() {
+          var h = header ? header.getBoundingClientRect().height : 76;
+          document.documentElement.style.setProperty("--hdr", h + "px");
+          document.body.style.paddingTop = h + "px";
+        }
+
+        function forceClose() {
+          if (!collapse) return;
+          collapse.classList.remove("is-open", "in");
+          toggle && toggle.classList.remove("is-open");
+          toggle && toggle.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+
+        setHeaderVar();
+        window.addEventListener("resize", setHeaderVar);
+        forceClose();
+
+        // toggle open/close
+        toggle &&
+          toggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = collapse.classList.toggle("is-open");
+            this.classList.toggle("is-open", open); // toggles cross vs bars
+            this.setAttribute("aria-expanded", String(open));
+            document.body.style.overflow = open ? "hidden" : "";
+          });
+
+        // close when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            window.matchMedia("(max-width:1023px)").matches &&
+            !header.contains(e.target)
+          ) {
+            forceClose();
+          }
+        });
+
+        // auto-close when resizing to desktop
+        window.addEventListener("resize", function () {
+          if (window.matchMedia("(min-width:1024px)").matches) {
+            forceClose();
+          }
+        });
+      })();
+    </script>
+    <!-- Navbar collapse end -->
     <!-- Custom js -->
     <script src="js/script.js"></script>
   </body>

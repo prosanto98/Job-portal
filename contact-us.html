@@ -33,13 +33,16 @@
               <button
                 type="button"
                 class="navbar-toggle"
-                data-toggle="collapse"
-                data-target=".navbar-collapse"
+                id="navToggle"
+                aria-controls="nav-main"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
               >
-                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <span class="close-icon">&times;</span>
+                <!-- cross icon -->
               </button>
             </div>
           </div>
@@ -328,6 +331,60 @@
     <!-- Owl carousel -->
     <script src="js/owl.carousel.js"></script>
 
+    <!-- Navbar collapse start -->
+    <script>
+      (function () {
+        var header = document.querySelector(".header");
+        var toggle = document.querySelector("#navToggle");
+        var collapse = document.querySelector("#nav-main");
+
+        function setHeaderVar() {
+          var h = header ? header.getBoundingClientRect().height : 76;
+          document.documentElement.style.setProperty("--hdr", h + "px");
+          document.body.style.paddingTop = h + "px";
+        }
+
+        function forceClose() {
+          if (!collapse) return;
+          collapse.classList.remove("is-open", "in");
+          toggle && toggle.classList.remove("is-open");
+          toggle && toggle.setAttribute("aria-expanded", "false");
+          document.body.style.overflow = "";
+        }
+
+        setHeaderVar();
+        window.addEventListener("resize", setHeaderVar);
+        forceClose();
+
+        // toggle open/close
+        toggle &&
+          toggle.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var open = collapse.classList.toggle("is-open");
+            this.classList.toggle("is-open", open); // toggles cross vs bars
+            this.setAttribute("aria-expanded", String(open));
+            document.body.style.overflow = open ? "hidden" : "";
+          });
+
+        // close when clicking outside
+        document.addEventListener("click", function (e) {
+          if (
+            window.matchMedia("(max-width:1023px)").matches &&
+            !header.contains(e.target)
+          ) {
+            forceClose();
+          }
+        });
+
+        // auto-close when resizing to desktop
+        window.addEventListener("resize", function () {
+          if (window.matchMedia("(min-width:1024px)").matches) {
+            forceClose();
+          }
+        });
+      })();
+    </script>
+    <!-- Navbar collapse end -->
     <!-- Custom js -->
     <script src="js/script.js"></script>
   </body>
