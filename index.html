@@ -321,80 +321,77 @@
 
     <!-- how it Works -->
     <style>
-      /* ====== FOOTER STYLING ====== */
-      .footerWrap {
-        background: linear-gradient(180deg, #111 0%, #000 100%);
-        color: #ccc;
-        padding: 60px 0 40px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      .howitwrap {
+        font-family: "Poppins", sans-serif;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin-top: 60px;
       }
 
-      /* Equal Column Gaps */
-      .footer-cols {
-        row-gap: 40px;
+      .titleTop h3 {
+        font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+        margin-bottom: 1rem;
       }
 
-      .footer-col {
-        text-align: left;
-      }
-
-      .footerWrap h5 {
-        color: #fff;
-        font-weight: 600;
-        margin-bottom: 15px;
-        font-size: 16px;
-        letter-spacing: 0.4px;
-      }
-
-      .footerWrap .quicklinks li {
-        margin-bottom: 8px;
-      }
-
-      .footerWrap .quicklinks li a {
-        color: #aaa;
-        text-decoration: none;
-        font-size: 14px;
-        transition: all 0.3s ease;
-      }
-
-      .footerWrap .quicklinks li a:hover {
-        color: #fff;
-        padding-left: 4px;
-      }
-
-      /* Social Icons */
-      .footerWrap .social {
-        margin-top: 20px;
-      }
-
-      .footerWrap .social-link {
-        display: inline-block;
-        color: #aaa;
-        font-size: 24px;
-        margin: 0 10px;
-        transition: all 0.3s ease;
-      }
-
-      .footerWrap .social-link:hover {
+      .titleTop span {
         color: #0d6efd;
-        transform: translateY(-3px);
       }
 
-      /* Responsive Fix */
-      @media (max-width: 991px) {
-        .footer-col {
-          margin-bottom: 25px;
-          text-align: left;
+      /* Icon circle */
+      .iconcircle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #f0f4ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: #0d6efd;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+      }
+
+      .iconcircle:hover {
+        background: #0d6efd;
+        color: #fff;
+        transform: scale(1.2);
+        box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+      }
+
+      .howlist h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .howlist p {
+        font-size: 0.95rem;
+        color: #6c757d;
+        line-height: 1.5;
+      }
+
+      /* Responsive spacing */
+      @media (max-width: 991.98px) {
+        .howitwrap {
+          padding-top: 60px;
+          padding-bottom: 60px;
+          margin-top: 40px;
+          margin-bottom: 40px;
         }
       }
 
-      @media (max-width: 767px) {
-        .footer-cols {
-          row-gap: 25px;
+      @media (max-width: 575.98px) {
+        .howitwrap {
+          padding-top: 40px;
+          padding-bottom: 40px;
+          margin-top: 30px;
+          margin-bottom: 30px;
         }
 
-        .footer-col {
-          flex: 0 0 100%;
+        .iconcircle {
+          width: 70px;
+          height: 70px;
+          font-size: 24px;
         }
       }
     </style>
