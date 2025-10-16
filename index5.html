@@ -21,215 +21,104 @@
     <link href="css/main.css" rel="stylesheet" />
     <!-- nav -->
     <style>
-      /* ========== HAMBURGER / CLOSE ICON (global) ========== */
-      .header .navbar-toggle {
+      /* Make header fixed */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Prevent content from hiding under header */
+      body {
+        padding-top: 80px; /* adjust if your header height differs */
+      }
+
+      /* Optional: smooth effect on scroll */
+      .header.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      /* Background */
+      .bg-gradient {
+        background: linear-gradient(135deg, #eef4ff 0%, #e2ecff 100%);
+      }
+
+      /* Title styling */
+      .titleTop h3 {
+        font-size: clamp(1.8rem, 2.4vw, 2.3rem);
+        letter-spacing: -0.4px;
+      }
+
+      .titleTop span {
+        color: #0d6efd;
+      }
+
+      .titleTop p {
+        font-size: 1rem;
+        color: #6c757d;
+      }
+
+      /* Category cards */
+      .category-item {
+        display: block;
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 20px 24px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #212529;
+        border: 1px solid #e4e9f1;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+        text-align: left;
         position: relative;
-        z-index: 10001;
-        border: 0;
-        background: transparent;
-        outline: none;
+        transition: all 0.3s ease-in-out;
       }
 
-      .header .navbar-toggle .icon-bar {
-        background: #111 !important;
-        height: 2px;
-        width: 24px;
-        display: block;
-        transition: all 0.2s ease;
+      /* Gap control between cards */
+      .row > [class*="col-"] {
+        padding: 10px 12px;
       }
 
-      .header .navbar-toggle .icon-bar + .icon-bar {
-        margin-top: 5px;
+      .category-item span {
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #0d6efd; /* number color */
+        font-weight: 600;
+        transition: color 0.3s ease;
       }
 
-      .header .navbar-toggle .close-icon {
-        display: none;
-        color: #111;
-        font-size: 28px;
-        line-height: 28px;
-        margin-top: 2px;
+      .category-item:hover {
+        background: linear-gradient(90deg, #0d6efd, #4dabf7);
+        color: #fff;
+        transform: translateY(-6px) scale(1.015);
+        border-color: transparent;
+        box-shadow: 0 10px 22px rgba(13, 110, 253, 0.25);
       }
 
-      /* when menu open → show cross */
-      .header .navbar-toggle.is-open .icon-bar {
-        display: none;
+      .category-item:hover span {
+        color: #fff; /* white when hover */
       }
 
-      .header .navbar-toggle.is-open .close-icon {
-        display: block;
-      }
-
-      /* ========== MOBILE + TABLET (≤1023px) ========== */
-      @media (max-width: 1023px) {
-        /* show toggle on tablet/phone */
-        .navbar-header .navbar-toggle {
-          display: inline-block;
-          border: 0;
-          background: transparent;
-          margin-top: 10px;
-        }
-
-        /* ✅ Critical: override Bootstrap's display:none !important */
-        .navbar-collapse.collapse {
-          display: block !important;
-        }
-
-        /* Fixed overlay panel — hidden by default (we control with is-open/in) */
-        .navbar-collapse {
-          position: fixed;
-          top: var(--hdr, 76px);
-          left: 0;
-          right: 0;
-          width: 100%;
-          max-height: 0;
-          overflow: hidden;
-          background: #fff;
-          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-6px);
-          transition: max-height 0.3s ease, opacity 0.2s ease,
-            transform 0.2s ease, visibility 0.2s;
-          z-index: 10000;
-          -webkit-overflow-scrolling: touch;
-        }
-
-        /* Open states: support BOTH our class and Bootstrap's .in */
-        .navbar-collapse.is-open,
-        .navbar-collapse.in {
-          max-height: 85vh;
-          overflow: auto;
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
-        }
-
-        /* Vertical stack for links & right actions */
-        .navbar .center-nav,
-        .navbar .nav-right {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          gap: 4px;
-          padding: 10px;
-        }
-
-        .navbar .center-nav > li,
-        .navbar .nav-right > li {
-          width: 100%;
-        }
-
-        .navbar .center-nav > li > a,
-        .navbar .nav-right > li > a {
-          width: 100%;
-          justify-content: space-between;
-        }
-
-        /* Dropdowns behave like accordion */
-        .navbar .dropdown > .dropdown-menu {
-          position: static;
-          border: 1px solid #eef1f6;
-          box-shadow: none;
-          opacity: 1;
-          visibility: visible;
-          transform: none;
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.25s ease;
-          margin: 6px 0 8px;
-        }
-
-        .navbar .dropdown.is-open > .dropdown-menu {
-          max-height: 600px;
-        }
-
-        /* Buttons full width */
-        .postjob > a,
-        .jobseeker > a {
-          width: 100%;
+      /* Responsive */
+      @media (max-width: 767.98px) {
+        .category-item {
           text-align: center;
-        }
-      }
-      /* ===== TABLET-LARGE / SMALL DESKTOP FIX (1024px–1199px) ===== */
-      @media (min-width: 1024px) and (max-width: 1199px) {
-        /* overall nav link size slightly smaller */
-        .navbar .center-nav > li > a {
-          font-size: 13px;
-          padding: 10px 10px; /* reduce horizontal space */
+          padding: 18px;
         }
 
-        /* dropdown caret spacing adjust */
-        .navbar .dropdown > a .caret {
-          margin-left: 4px;
-        }
-
-        /* buttons on right side */
-        .postjob > a,
-        .jobseeker > a {
-          font-size: 13px;
-          padding: 8px 14px;
-          border-radius: 6px;
-        }
-
-        /* user image slightly smaller */
-        .userimg {
-          width: 30px;
-          height: 30px;
-          border-width: 2px;
-        }
-
-        /* reduce gap between right items */
-        .navbar-nav.navbar-right > li {
-          margin-left: 6px;
-        }
-
-        /* keep center menu from wrapping */
-        .navbar .center-nav {
-          gap: 4px;
-        }
-
-        /* keep whole header compact */
-        .header {
-          min-height: 70px;
-        }
-      }
-      /* ===== TABLET-LARGE / SMALL DESKTOP FIX (1024px–1199px) ===== */
-      @media (min-width: 1024px) and (max-width: 1199px) {
-        /* center menu font size & spacing adjust */
-        .navbar .center-nav > li > a {
-          font-size: 13px;
-          padding: 10px 10px; /* reduce horizontal padding */
-        }
-
-        /* right side buttons smaller padding */
-        .postjob > a,
-        .jobseeker > a {
-          font-size: 13px;
-          padding: 6px 10px; /* 🔹 smaller padding */
-          border-radius: 6px;
-        }
-
-        /* make sure text doesn’t wrap */
-        .postjob > a span,
-        .jobseeker > a span {
-          white-space: nowrap;
-        }
-
-        /* profile image smaller */
-        .userimg {
-          width: 30px;
-          height: 30px;
-          border-width: 2px;
-        }
-
-        /* reduce gap between right items */
-        .navbar-nav.navbar-right > li {
-          margin-left: 5px;
-        }
-
-        /* keep nav height compact */
-        .header {
-          min-height: 68px;
+        .category-item span {
+          position: static;
+          display: block;
+          transform: none;
+          margin-top: 6px;
         }
       }
     </style>
@@ -240,23 +129,14 @@
       .footerWrap {
         background: linear-gradient(180deg, #111 0%, #000 100%);
         color: #ccc;
-        padding: 60px 0 40px;
+        padding: 60px 0 30px;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       }
 
       /* Footer Columns */
-      .footer-cols {
-        margin-top: 0;
-      }
-
       .footer-col {
         text-align: left;
-      }
-
-      /* Equal spacing between columns */
-      .footer-cols > [class*="col-"] {
-        padding-left: 20px;
-        padding-right: 20px;
+        margin-bottom: 30px;
       }
 
       .footerWrap h5 {
@@ -267,6 +147,7 @@
         letter-spacing: 0.4px;
       }
 
+      /* Quicklinks */
       .footerWrap .quicklinks li {
         margin-bottom: 8px;
       }
@@ -285,14 +166,14 @@
 
       /* Social Icons */
       .footerWrap .social {
-        margin-top: 20px;
+        margin-top: 30px;
       }
 
       .footerWrap .social-link {
         display: inline-block;
         color: #aaa;
         font-size: 24px;
-        margin: 0 10px;
+        margin: 0 8px;
         transition: all 0.3s ease;
       }
 
@@ -301,100 +182,106 @@
         transform: translateY(-3px);
       }
 
-      /* Responsive */
-      @media (max-width: 991px) {
-        .footer-col {
-          margin-bottom: 25px;
-        }
+      /* Divider Line */
+      .footer-line {
+        border-color: #333;
+        margin-top: 40px;
+        margin-bottom: 20px;
       }
 
+      /* Copyright */
+      .footerWrap .copyright {
+        color: #888;
+        font-size: 13px;
+        margin: 0;
+      }
+
+      /* Responsive */
       @media (max-width: 767px) {
-        .footer-cols {
-          row-gap: 25px;
+        .footer-col {
+          text-align: left !important;
+          margin-bottom: 25px;
         }
 
-        .footer-col {
-          flex: 0 0 100%;
+        .footerWrap .social {
+          margin-top: 15px;
         }
       }
     </style>
 
     <!-- how it Works -->
     <style>
-      /* ====== FOOTER STYLING ====== */
-      .footerWrap {
-        background: linear-gradient(180deg, #111 0%, #000 100%);
-        color: #ccc;
-        padding: 60px 0 40px;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      .howitwrap {
+        font-family: "Poppins", sans-serif;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin-top: 60px;
       }
 
-      /* Equal Column Gaps */
-      .footer-cols {
-        row-gap: 40px;
+      .titleTop h3 {
+        font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+        margin-bottom: 1rem;
       }
 
-      .footer-col {
-        text-align: left;
-      }
-
-      .footerWrap h5 {
-        color: #fff;
-        font-weight: 600;
-        margin-bottom: 15px;
-        font-size: 16px;
-        letter-spacing: 0.4px;
-      }
-
-      .footerWrap .quicklinks li {
-        margin-bottom: 8px;
-      }
-
-      .footerWrap .quicklinks li a {
-        color: #aaa;
-        text-decoration: none;
-        font-size: 14px;
-        transition: all 0.3s ease;
-      }
-
-      .footerWrap .quicklinks li a:hover {
-        color: #fff;
-        padding-left: 4px;
-      }
-
-      /* Social Icons */
-      .footerWrap .social {
-        margin-top: 20px;
-      }
-
-      .footerWrap .social-link {
-        display: inline-block;
-        color: #aaa;
-        font-size: 24px;
-        margin: 0 10px;
-        transition: all 0.3s ease;
-      }
-
-      .footerWrap .social-link:hover {
+      .titleTop span {
         color: #0d6efd;
-        transform: translateY(-3px);
       }
 
-      /* Responsive Fix */
-      @media (max-width: 991px) {
-        .footer-col {
-          margin-bottom: 25px;
-          text-align: left;
+      /* Icon circle */
+      .iconcircle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #f0f4ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: #0d6efd;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+      }
+
+      .iconcircle:hover {
+        background: #0d6efd;
+        color: #fff;
+        transform: scale(1.2);
+        box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+      }
+
+      .howlist h4 {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .howlist p {
+        font-size: 0.95rem;
+        color: #6c757d;
+        line-height: 1.5;
+      }
+
+      /* Responsive spacing */
+      @media (max-width: 991.98px) {
+        .howitwrap {
+          padding-top: 60px;
+          padding-bottom: 60px;
+          margin-top: 40px;
+          margin-bottom: 40px;
         }
       }
 
-      @media (max-width: 767px) {
-        .footer-cols {
-          row-gap: 25px;
+      @media (max-width: 575.98px) {
+        .howitwrap {
+          padding-top: 40px;
+          padding-bottom: 40px;
+          margin-top: 30px;
+          margin-bottom: 30px;
         }
 
-        .footer-col {
-          flex: 0 0 100%;
+        .iconcircle {
+          width: 70px;
+          height: 70px;
+          font-size: 24px;
         }
       }
     </style>
@@ -405,8 +292,6 @@
         line-height: 1.3;
         max-width: 160px;
         margin: 0;
-        font-size: 15px;
-        font-weight: 700;
       }
 
       .visa-flag {
@@ -445,7 +330,6 @@
       }
     </style>
   </head>
-
   <body>
     <!-- Header start -->
     <div class="header">
@@ -459,16 +343,13 @@
               <button
                 type="button"
                 class="navbar-toggle"
-                id="navToggle"
-                aria-controls="nav-main"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
               >
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="close-icon">&times;</span>
-                <!-- cross icon -->
               </button>
             </div>
           </div>
@@ -929,7 +810,7 @@
                 </div>
                 <div class="text-center">
                   <a href="#." class="btn btn-primary btn-sm applybtn"
-                    >Hire Now</a
+                    >Apply Now</a
                   >
                 </div>
               </div>
@@ -953,7 +834,7 @@
                 </div>
                 <div class="text-center">
                   <a href="#." class="btn btn-primary btn-sm applybtn"
-                    >Hire Now</a
+                    >Apply Now</a
                   >
                 </div>
               </div>
@@ -977,7 +858,7 @@
                 </div>
                 <div class="text-center">
                   <a href="#." class="btn btn-primary btn-sm applybtn"
-                    >Hire Now</a
+                    >Apply Now</a
                   >
                 </div>
               </div>
@@ -1001,7 +882,7 @@
                 </div>
                 <div class="text-center">
                   <a href="#." class="btn btn-primary btn-sm applybtn"
-                    >Hire Now</a
+                    >Apply Now</a
                   >
                 </div>
               </div>
@@ -1025,7 +906,7 @@
                 </div>
                 <div class="text-center">
                   <a href="#." class="btn btn-primary btn-sm applybtn"
-                    >Hire Now</a
+                    >Apply Now</a
                   >
                 </div>
               </div>
@@ -1049,16 +930,19 @@
                 </div>
                 <div class="text-center">
                   <a href="#." class="btn btn-primary btn-sm applybtn"
-                    >Hire Now</a
+                    >Apply Now</a
                   >
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!--view button-->
-        <div class="viewallbtn"><a href="#.">View All Featured Jobs</a></div>
-        <!--view button end-->
+
+        <div class="viewallbtn text-center mt-5">
+          <a href="job-listing.html" class="btn btn-outline-secondary"
+            >View All Featured Jobs</a
+          >
+        </div>
       </div>
     </div>
     <!-- Featured Works ends -->
@@ -1338,14 +1222,14 @@
     <!-- Footer -->
     <footer class="footerWrap">
       <div class="container">
-        <div class="row gx-5 gy-4 text-left footer-cols">
+        <div class="row text-left footer-cols">
           <!-- Column 1 -->
-          <div class="col-lg-3 col-md-6 footer-col">
-            <div class="ft-logo mb-3">
+          <div class="col-md-3 col-sm-6 col-xs-12 footer-col">
+            <div class="ft-logo">
               <img
                 src="images/logo.png"
                 alt="Logo"
-                class="img-fluid"
+                class="img-responsive"
                 style="max-width: 160px"
               />
             </div>
@@ -1357,57 +1241,59 @@
           </div>
 
           <!-- Column 2 -->
-          <div class="col-lg-3 col-md-6 footer-col">
+          <div class="col-md-3 col-sm-6 col-xs-12 footer-col">
             <h5>Quick Links</h5>
             <ul class="list-unstyled quicklinks">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Contact us</a></li>
-              <li><a href="#">Job Details</a></li>
+              <li><a href="#">Career Services</a></li>
+              <li><a href="#">CV Writing</a></li>
+              <li><a href="#">Career Resources</a></li>
+              <li><a href="#">Company Listings</a></li>
             </ul>
           </div>
 
           <!-- Column 3 -->
-          <div class="col-lg-3 col-md-6 footer-col">
+          <div class="col-md-3 col-sm-6 col-xs-12 footer-col">
             <h5>More Links</h5>
             <ul class="list-unstyled quicklinks">
-              <li><a href="#">Blog</a></li>
+              <li><a href="#">Success Stories</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Create Account</a></li>
               <li><a href="#">Post a Job</a></li>
-              <li><a href="#">Find a Job</a></li>
-              <li><a href="#">Partners</a></li>
             </ul>
           </div>
 
           <!-- Column 4 -->
-          <div class="col-lg-3 col-md-6 footer-col">
+          <div class="col-md-3 col-sm-6 col-xs-12 footer-col">
             <h5>Support</h5>
             <ul class="list-unstyled quicklinks">
               <li><a href="#">FAQ</a></li>
               <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms & Services</a></li>
-              <li><a href="#">Affiliate Program</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Contact Sales</a></li>
             </ul>
           </div>
         </div>
 
-        <!-- Social Icons -->
-        <div class="text-center mt-4">
-          <div class="social">
-            <a href="#" class="social-link"
-              ><i class="fa fa-facebook-square"></i
-            ></a>
-            <a href="#" class="social-link"
-              ><i class="fa fa-twitter-square"></i
-            ></a>
-            <a href="#" class="social-link"
-              ><i class="fa fa-google-plus-square"></i
-            ></a>
-            <a href="#" class="social-link"
-              ><i class="fa fa-linkedin-square"></i
-            ></a>
-            <a href="#" class="social-link"
-              ><i class="fa fa-youtube-square"></i
-            ></a>
+        <!-- Social Icons Centered -->
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="social">
+              <a href="#" class="social-link"
+                ><i class="fa fa-facebook-square"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa fa-twitter-square"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa fa-google-plus-square"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa fa-linkedin-square"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fa fa-youtube-square"></i
+              ></a>
+            </div>
           </div>
         </div>
       </div>
@@ -1432,60 +1318,6 @@
 
     <!-- Owl carousel -->
     <script src="js/owl.carousel.js"></script>
-    <!-- Navbar collapse start -->
-    <script>
-      (function () {
-        var header = document.querySelector(".header");
-        var toggle = document.querySelector("#navToggle");
-        var collapse = document.querySelector("#nav-main");
-
-        function setHeaderVar() {
-          var h = header ? header.getBoundingClientRect().height : 76;
-          document.documentElement.style.setProperty("--hdr", h + "px");
-          document.body.style.paddingTop = h + "px";
-        }
-
-        function forceClose() {
-          if (!collapse) return;
-          collapse.classList.remove("is-open", "in");
-          toggle && toggle.classList.remove("is-open");
-          toggle && toggle.setAttribute("aria-expanded", "false");
-          document.body.style.overflow = "";
-        }
-
-        setHeaderVar();
-        window.addEventListener("resize", setHeaderVar);
-        forceClose();
-
-        // toggle open/close
-        toggle &&
-          toggle.addEventListener("click", function (e) {
-            e.stopPropagation();
-            var open = collapse.classList.toggle("is-open");
-            this.classList.toggle("is-open", open); // toggles cross vs bars
-            this.setAttribute("aria-expanded", String(open));
-            document.body.style.overflow = open ? "hidden" : "";
-          });
-
-        // close when clicking outside
-        document.addEventListener("click", function (e) {
-          if (
-            window.matchMedia("(max-width:1023px)").matches &&
-            !header.contains(e.target)
-          ) {
-            forceClose();
-          }
-        });
-
-        // auto-close when resizing to desktop
-        window.addEventListener("resize", function () {
-          if (window.matchMedia("(min-width:1024px)").matches) {
-            forceClose();
-          }
-        });
-      })();
-    </script>
-    <!-- Navbar collapse end -->
 
     <!-- Custom js -->
     <script src="js/script.js"></script>
