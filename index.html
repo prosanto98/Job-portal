@@ -149,36 +149,35 @@
       <div class="container">
         <div class="row">
           <div class="col-md-2 col-sm-3 col-xs-12">
-            <a href="index.html" class="logo">
-              <img src="images/logo.png" alt="" />
-            </a>
+            <a href="index.html" class="logo"
+              ><img src="images/logo.png" alt=""
+            /></a>
             <div class="navbar-header">
               <button
                 type="button"
                 class="navbar-toggle"
-                id="navToggle"
-                aria-controls="nav-main"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
+                data-toggle="collapse"
+                data-target=".navbar-collapse"
               >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="close-icon">&times;</span>
-                <!-- cross icon -->
               </button>
             </div>
+            <div class="clearfix"></div>
           </div>
-
           <div class="col-md-10 col-sm-12 col-xs-12">
             <!-- Nav start -->
             <div class="navbar navbar-default" role="navigation">
               <div class="navbar-collapse collapse" id="nav-main">
-                <ul class="nav navbar-nav center-nav">
-                  <li class="dropdown active"><a href="index.html">Home</a></li>
+                <ul class="nav navbar-nav">
+                  <li class="dropdown active">
+                    <a href="index.html">Home</a>
+                  </li>
                   <li><a href="about-us.html">About us</a></li>
                   <li class="dropdown">
                     <a href="#.">Pages <span class="caret"></span></a>
+                    <!-- dropdown start -->
                     <ul class="dropdown-menu">
                       <li><a href="about-us.html">About Us</a></li>
                       <li><a href="login.html">Login</a></li>
@@ -199,8 +198,11 @@
                       <li><a href="404.html">404 Page</a></li>
                       <li><a href="typography.html">Typography</a></li>
                     </ul>
+                    <!-- dropdown end -->
                   </li>
-                  <li><a href="blog-detail.html">Blog</a></li>
+                  <li>
+                    <a href="blog-detail.html">Blog</a>
+                  </li>
                   <li><a href="contact-us.html">Contact</a></li>
                   <li class="postjob">
                     <a href="post-job.html">Post a job</a>
@@ -209,50 +211,51 @@
                     <a href="candidate-listing.html">Job Seeker</a>
                   </li>
                   <li class="dropdown userbtn">
-                    <a href="">
-                      <img
+                    <a href=""
+                      ><img
                         src="images/candidates/01.jpg"
                         alt=""
                         class="userimg"
-                      />
-                    </a>
+                    /></a>
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="login.html"
-                          ><i class="fa fa-tachometer"></i> Login</a
-                        >
-                      </li>
-                      <li>
-                        <a href="register.html"
-                          ><i class="fa fa-tachometer"></i>Register</a
-                        >
-                      </li>
-                      <li>
                         <a href="dashboard.html"
-                          ><i class="fa fa-tachometer"></i> Dashboard</a
+                          ><i class="fa fa-tachometer" aria-hidden="true"></i>
+                          Dashboard</a
                         >
                       </li>
                       <li>
                         <a href="#"
-                          ><i class="fa fa-pencil"></i> Edit Profile</a
+                          ><i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                          Profilt</a
                         >
                       </li>
                       <li>
-                        <a href="#"><i class="fa fa-briefcase"></i> My Jobs</a>
+                        <a href="#"
+                          ><i class="fa fa-briefcase" aria-hidden="true"></i> My
+                          Jobs</a
+                        >
                       </li>
                       <li role="separator" class="divider"></li>
                       <li>
-                        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                        <a href="#"
+                          ><i class="fa fa-sign-out" aria-hidden="true"></i>
+                          Logout</a
+                        >
                       </li>
                     </ul>
                   </li>
                 </ul>
+                <!-- Nav collapes end -->
               </div>
+              <div class="clearfix"></div>
             </div>
             <!-- Nav end -->
           </div>
         </div>
+        <!-- row end -->
       </div>
+      <!-- Header container end -->
     </div>
     <!-- Header end -->
 
@@ -1139,61 +1142,6 @@
 
     <!-- Owl carousel -->
     <script src="js/owl.carousel.js"></script>
-    <!-- Navbar collapse start -->
-    <script>
-      (function () {
-        var header = document.querySelector(".header");
-        var toggle = document.querySelector("#navToggle");
-        var collapse = document.querySelector("#nav-main");
-
-        function setHeaderVar() {
-          var h = header ? header.getBoundingClientRect().height : 76;
-          document.documentElement.style.setProperty("--hdr", h + "px");
-          document.body.style.paddingTop = h + "px";
-        }
-
-        function forceClose() {
-          if (!collapse) return;
-          collapse.classList.remove("is-open", "in");
-          toggle && toggle.classList.remove("is-open");
-          toggle && toggle.setAttribute("aria-expanded", "false");
-          document.body.style.overflow = "";
-        }
-
-        setHeaderVar();
-        window.addEventListener("resize", setHeaderVar);
-        forceClose();
-
-        // toggle open/close
-        toggle &&
-          toggle.addEventListener("click", function (e) {
-            e.stopPropagation();
-            var open = collapse.classList.toggle("is-open");
-            this.classList.toggle("is-open", open); // toggles cross vs bars
-            this.setAttribute("aria-expanded", String(open));
-            document.body.style.overflow = open ? "hidden" : "";
-          });
-
-        // close when clicking outside
-        document.addEventListener("click", function (e) {
-          if (
-            window.matchMedia("(max-width:1023px)").matches &&
-            !header.contains(e.target)
-          ) {
-            forceClose();
-          }
-        });
-
-        // auto-close when resizing to desktop
-        window.addEventListener("resize", function () {
-          if (window.matchMedia("(min-width:1024px)").matches) {
-            forceClose();
-          }
-        });
-      })();
-    </script>
-    <!-- Navbar collapse end -->
-
     <!-- Custom js -->
     <script src="js/script.js"></script>
   </body>

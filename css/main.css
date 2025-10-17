@@ -492,8 +492,17 @@ h6 {
 }
 
 /************************************************
-           ==Header css==
-*************************************************/
+  ==Header css==
+  *************************************************/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: #fff; /* Optional: background fixed navbar clear রাখে */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: shadow effect */
+}
 .header {
   padding: 0;
 }
@@ -528,36 +537,6 @@ h6 {
   font-weight: 600;
   padding: 16px 0;
   border-bottom: 2px solid #fff;
-}
-
-/* Center navbar items */
-.center-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-/* Remove float for flex alignment */
-.navbar-nav > li {
-  float: none;
-}
-
-/* Reduce spacing between items */
-.navbar-nav > li > a {
-  padding: 10px 14px;
-  font-size: 15px;
-  text-decoration: none; /* underline remove */
-  border-bottom: none; /* extra bottom line remove */
-}
-
-/* Hover & active style */
-.navbar-nav > li > a:hover,
-.navbar-nav > li.active > a {
-  color: #007bff;
-  background: transparent;
-  text-decoration: none; /* hover underline remove */
-  border-bottom: none !important; /* any bottom border remove */
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -638,7 +617,6 @@ h6 {
   left: auto;
   right: 0;
 }
-
 /************************************************
            ==Top Search css==
 *************************************************/
@@ -2524,8 +2502,7 @@ a.wit-btn {
   margin-bottom: 15px;
   font-weight: 600;
 }
-.whatList li p {
-}
+
 .textrow {
   padding-top: 100px;
 }
@@ -3589,51 +3566,6 @@ Large Mobile Screen
     text-align: center;
   }
 }
-
-/* ====== HEADER ====== */
-/* Make header fixed */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* Prevent content from hiding under header */
-body {
-  padding-top: 80px; /* adjust if your header height differs */
-}
-
-/* Optional: smooth effect on scroll */
-.header.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-/* Background */
-.bg-gradient {
-  background: linear-gradient(135deg, #eef4ff 0%, #e2ecff 100%);
-}
-
-/* Title styling */
-.titleTop h3 {
-  font-size: clamp(1.8rem, 2.4vw, 2.3rem);
-  letter-spacing: -0.4px;
-}
-
-.titleTop span {
-  color: #0d6efd;
-}
-
-.titleTop p {
-  font-size: 1rem;
-  color: #6c757d;
-}
-
 /* Category cards */
 .category-item {
   display: block;
@@ -3689,298 +3621,5 @@ body {
     display: block;
     transform: none;
     margin-top: 6px;
-  }
-}
-/* ========== HAMBURGER / CLOSE ICON (global) ========== */
-.header .navbar-toggle {
-  position: relative;
-  z-index: 10001;
-  border: 0;
-  background: transparent;
-  outline: none;
-}
-
-.header .navbar-toggle .icon-bar {
-  background: #111 !important;
-  height: 2px;
-  width: 24px;
-  display: block;
-  transition: all 0.2s ease;
-}
-
-.header .navbar-toggle .icon-bar + .icon-bar {
-  margin-top: 5px;
-}
-
-.header .navbar-toggle .close-icon {
-  display: none;
-  color: #111;
-  font-size: 28px;
-  line-height: 28px;
-  margin-top: 2px;
-}
-
-/* when menu open → show cross */
-.header .navbar-toggle.is-open .icon-bar {
-  display: none;
-}
-
-.header .navbar-toggle.is-open .close-icon {
-  display: block;
-}
-
-/* ========== MOBILE + TABLET (≤1023px) ========== */
-@media (max-width: 1023px) {
-  /* show toggle on tablet/phone */
-  .navbar-header .navbar-toggle {
-    display: inline-block;
-    border: 0;
-    background: transparent;
-    margin-top: 10px;
-  }
-
-  /* ✅ Critical: override Bootstrap's display:none !important */
-  .navbar-collapse.collapse {
-    display: block !important;
-  }
-
-  /* Fixed overlay panel — hidden by default (we control with is-open/in) */
-  .navbar-collapse {
-    position: fixed;
-    top: var(--hdr, 76px);
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-6px);
-    transition: max-height 0.3s ease, opacity 0.2s ease, transform 0.2s ease,
-      visibility 0.2s;
-    z-index: 10000;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Open states: support BOTH our class and Bootstrap's .in */
-  .navbar-collapse.is-open,
-  .navbar-collapse.in {
-    max-height: 85vh;
-    overflow: auto;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-
-  /* Vertical stack for links & right actions */
-  .navbar .center-nav,
-  .navbar .nav-right {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-    padding: 10px;
-  }
-
-  .navbar .center-nav > li,
-  .navbar .nav-right > li {
-    width: 100%;
-  }
-
-  .navbar .center-nav > li > a,
-  .navbar .nav-right > li > a {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  /* Dropdowns behave like accordion */
-  .navbar .dropdown > .dropdown-menu {
-    position: static;
-    border: 1px solid #eef1f6;
-    box-shadow: none;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.25s ease;
-    margin: 6px 0 8px;
-  }
-
-  .navbar .dropdown.is-open > .dropdown-menu {
-    max-height: 600px;
-  }
-
-  /* Buttons full width */
-  .postjob > a,
-  .jobseeker > a {
-    width: 100%;
-    text-align: center;
-  }
-}
-/* ===== TABLET-LARGE / SMALL DESKTOP FIX (1024px–1199px) ===== */
-@media (min-width: 1024px) and (max-width: 1199px) {
-  /* overall nav link size slightly smaller */
-  .navbar .center-nav > li > a {
-    font-size: 13px;
-    padding: 10px 10px; /* reduce horizontal space */
-  }
-
-  /* dropdown caret spacing adjust */
-  .navbar .dropdown > a .caret {
-    margin-left: 4px;
-  }
-
-  /* buttons on right side */
-  .postjob > a,
-  .jobseeker > a {
-    font-size: 13px;
-    padding: 8px 14px;
-    border-radius: 6px;
-  }
-
-  /* user image slightly smaller */
-  .userimg {
-    width: 30px;
-    height: 30px;
-    border-width: 2px;
-  }
-
-  /* reduce gap between right items */
-  .navbar-nav.navbar-right > li {
-    margin-left: 6px;
-  }
-
-  /* keep center menu from wrapping */
-  .navbar .center-nav {
-    gap: 4px;
-  }
-
-  /* keep whole header compact */
-  .header {
-    min-height: 70px;
-  }
-}
-/* ===== TABLET-LARGE / SMALL DESKTOP FIX (1024px–1199px) ===== */
-@media (min-width: 1024px) and (max-width: 1199px) {
-  /* center menu font size & spacing adjust */
-  .navbar .center-nav > li > a {
-    font-size: 13px;
-    padding: 10px 10px; /* reduce horizontal padding */
-  }
-
-  /* right side buttons smaller padding */
-  .postjob > a,
-  .jobseeker > a {
-    font-size: 13px;
-    padding: 6px 10px; /* 🔹 smaller padding */
-    border-radius: 6px;
-  }
-
-  /* make sure text doesn’t wrap */
-  .postjob > a span,
-  .jobseeker > a span {
-    white-space: nowrap;
-  }
-
-  /* profile image smaller */
-  .userimg {
-    width: 30px;
-    height: 30px;
-    border-width: 2px;
-  }
-
-  /* reduce gap between right items */
-  .navbar-nav.navbar-right > li {
-    margin-left: 5px;
-  }
-
-  /* keep nav height compact */
-  .header {
-    min-height: 68px;
-  }
-}
-
-/* ====== FOOTER STYLING ====== */
-.footerWrap {
-  background: linear-gradient(180deg, #111 0%, #000 100%);
-  color: #ccc;
-  padding: 60px 0 40px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-/* Footer Columns */
-.footer-cols {
-  margin-top: 0;
-}
-
-.footer-col {
-  text-align: left;
-}
-
-/* Equal spacing between columns */
-.footer-cols > [class*="col-"] {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.footerWrap h5 {
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 16px;
-  letter-spacing: 0.4px;
-}
-
-.footerWrap .quicklinks li {
-  margin-bottom: 8px;
-}
-
-.footerWrap .quicklinks li a {
-  color: #aaa;
-  text-decoration: none;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-
-.footerWrap .quicklinks li a:hover {
-  color: #fff;
-  padding-left: 4px;
-}
-
-/* Social Icons */
-.footerWrap .social {
-  margin-top: 20px;
-}
-
-.footerWrap .social-link {
-  display: inline-block;
-  color: #aaa;
-  font-size: 24px;
-  margin: 0 10px;
-  transition: all 0.3s ease;
-}
-
-.footerWrap .social-link:hover {
-  color: #0d6efd;
-  transform: translateY(-3px);
-}
-
-/* Responsive */
-@media (max-width: 991px) {
-  .footer-col {
-    margin-bottom: 25px;
-  }
-}
-
-@media (max-width: 767px) {
-  .footer-cols {
-    row-gap: 25px;
-  }
-
-  .footer-col {
-    flex: 0 0 100%;
   }
 }
