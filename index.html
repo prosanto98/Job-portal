@@ -19,6 +19,7 @@
 
     <!-- Custom Style -->
     <link href="css/main.css" rel="stylesheet" />
+
     <!-- how it Works -->
     <style>
       .howitwrap {
@@ -1139,10 +1140,37 @@
     <!-- Bootstrap's JavaScript -->
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Owl carousel -->
-    <script src="js/owl.carousel.js"></script>
     <!-- Custom js -->
-    <script src="js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(
+          ".navbar-nav .dropdown > a"
+        );
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("click", function (e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            document
+              .querySelectorAll(".navbar-nav .dropdown.open")
+              .forEach((openDropdown) => {
+                if (openDropdown !== parent) {
+                  openDropdown.classList.remove("open");
+                }
+              });
+
+            parent.classList.toggle("open");
+          });
+        });
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".navbar-nav .dropdown")) {
+            document
+              .querySelectorAll(".navbar-nav .dropdown.open")
+              .forEach((openDropdown) => {
+                openDropdown.classList.remove("open");
+              });
+          }
+        });
+      });
+    </script>
   </body>
 </html>

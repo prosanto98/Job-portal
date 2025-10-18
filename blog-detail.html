@@ -19,6 +19,90 @@
 
     <!-- Custom Style -->
     <link href="css/main.css" rel="stylesheet" />
+    <style>
+      /* === Blog Comment Form Styling (Matches Contact Form) === */
+      .commnetsfrm {
+        margin-top: 40px;
+        background: #fff;
+        padding: 45px 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .commnetsfrm h4 {
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #222;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.5px;
+      }
+
+      /* Input and textarea fields */
+      .commnetsfrm .form-control {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 18px 18px;
+        font-size: 15px;
+        color: #333;
+        background-color: #f9f9f9;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+        transition: all 0.3s ease;
+        height: 50px; /* same as contact form */
+      }
+
+      .commnetsfrm textarea.form-control {
+        height: 150px;
+        resize: none;
+      }
+
+      .commnetsfrm .form-control:focus {
+        border-color: #0d6efd;
+        background-color: #fff;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+        outline: none;
+      }
+
+      /* Placeholder styling */
+      .commnetsfrm .form-control::placeholder {
+        color: #888;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+      }
+
+      /* Submit Button */
+      .commnetsfrm button.btn {
+        background-color: #0d6efd;
+        color: #fff;
+        border: none;
+        padding: 12px 40px;
+        font-weight: 600;
+        border-radius: 6px;
+        text-transform: uppercase;
+        box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+        transition: all 0.3s ease;
+        display: block;
+        margin: 30px auto 0 auto; /* Centers button */
+      }
+
+      .commnetsfrm button.btn:hover {
+        background-color: #084298;
+        box-shadow: 0 6px 14px rgba(13, 110, 253, 0.4);
+        transform: translateY(-2px);
+      }
+
+      /* Spacing between fields */
+      .commnetsfrm ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .commnetsfrm li {
+        margin-bottom: 20px;
+      }
+    </style>
   </head>
   <body>
     <!-- Header start -->
@@ -132,9 +216,6 @@
         </div>
         <!-- row end -->
       </div>
-      <!-- Header container end -->
-    </div>
-    <!-- Header end -->
     </div>
     <!-- Header end -->
 
@@ -431,6 +512,7 @@
         </div>
       </div>
     </div>
+    <!-- Page Title end -->
 
     <!-- Footer -->
     <footer class="footerWrap">
