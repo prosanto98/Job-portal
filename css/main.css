@@ -602,13 +602,6 @@ h6 {
   padding: 16px 15px;
   border-bottom-color: #666;
 }
-.navbar-nav li a.postjob:hover,
-.navbar-nav li a.jobseeker:hover {
-  text-decoration: none;
-  color: #fff;
-  background: #000;
-}
-
 .navbar-nav > li.userbtn > a {
   padding: 0;
   border: none;

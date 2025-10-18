@@ -132,7 +132,7 @@
             <div class="navbar navbar-default" role="navigation">
               <div class="navbar-collapse collapse" id="nav-main">
                 <ul class="nav navbar-nav">
-                  <li class="dropdown active">
+                  <li class="dropdown">
                     <a href="index.html">Home</a>
                   </li>
                   <li><a href="about-us.html">About us</a></li>
@@ -140,9 +140,6 @@
                     <a href="#.">Pages <span class="caret"></span></a>
                     <!-- dropdown start -->
                     <ul class="dropdown-menu">
-                      <li><a href="about-us.html">About Us</a></li>
-                      <li><a href="login.html">Login</a></li>
-                      <li><a href="register.html">Register</a></li>
                       <li><a href="job-listing.html">Job Listing</a></li>
                       <li><a href="job-detail.html">Job Detail</a></li>
                       <li>
@@ -152,12 +149,7 @@
                         <a href="candidate-detail.html">Candidate Detail</a>
                       </li>
                       <li><a href="company-detail.html">Company Profile</a></li>
-                      <li><a href="edit-profile.html">Edit Profile</a></li>
-                      <li><a href="post-job.html">Post a Job</a></li>
-                      <li><a href="packages.html">Packages</a></li>
                       <li><a href="faqs.html">FAQs</a></li>
-                      <li><a href="404.html">404 Page</a></li>
-                      <li><a href="typography.html">Typography</a></li>
                     </ul>
                     <!-- dropdown end -->
                   </li>
@@ -180,15 +172,27 @@
                     /></a>
                     <ul class="dropdown-menu">
                       <li>
+                        <a href="login.html">
+                          <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+                        </a>
+                      </li>
+                      <li>
+                        <a href="register.html">
+                          <i class="fa fa-user-plus" aria-hidden="true"></i>
+                          Register
+                        </a>
+                      </li>
+
+                      <li>
                         <a href="dashboard.html"
                           ><i class="fa fa-tachometer" aria-hidden="true"></i>
                           Dashboard</a
                         >
                       </li>
                       <li>
-                        <a href="#"
+                        <a href="edit-profile.html"
                           ><i class="fa fa-pencil" aria-hidden="true"></i> Edit
-                          Profilt</a
+                          Profile</a
                         >
                       </li>
                       <li>
@@ -216,6 +220,7 @@
         </div>
         <!-- row end -->
       </div>
+      <!-- Header container end -->
     </div>
     <!-- Header end -->
 
@@ -608,11 +613,38 @@
     <!-- Bootstrap's JavaScript -->
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!-- Dropdown open and close -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(
+          ".navbar-nav .dropdown > a"
+        );
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("click", function (e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            document
+              .querySelectorAll(".navbar-nav .dropdown.open")
+              .forEach((openDropdown) => {
+                if (openDropdown !== parent) {
+                  openDropdown.classList.remove("open");
+                }
+              });
 
-    <!-- Owl carousel -->
-    <script src="js/owl.carousel.js"></script>
-
-    <!-- Custom js -->
-    <script src="js/script.js"></script>
+            parent.classList.toggle("open");
+          });
+        });
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".navbar-nav .dropdown")) {
+            document
+              .querySelectorAll(".navbar-nav .dropdown.open")
+              .forEach((openDropdown) => {
+                openDropdown.classList.remove("open");
+              });
+          }
+        });
+      });
+    </script>
+    <!-- Dropdown open and close -->
   </body>
 </html>
