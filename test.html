@@ -2,369 +2,745 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Visa Cards - Bootstrap 5</title>
-
-    <!-- Bootstrap 5 CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Optimized Navbar</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-
     <style>
-      .visa-title {
-        line-height: 1.3;
-        max-width: 160px;
-        margin: 0;
+      :root {
+        --primary-color: #1967d2;
+        --secondary-color: #5f6368;
+        --accent-color: #fbbc04;
+        --light-color: #f8f9fa;
+        --dark-color: #202124;
+        --border-color: #dadce0;
       }
 
-      .visa-flag {
-        width: 65px;
-        height: 42px;
-        border-radius: 0.5rem;
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding-top: 80px;
+        background-color: #f5f5f5;
+      }
+
+      .navbar {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        padding: 0.75rem 0;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-brand img {
+        height: 40px;
+        transition: height 0.3s ease;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: var(--dark-color);
+        padding: 0.5rem 1rem !important;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus {
+        color: var(--primary-color);
+        background-color: rgba(25, 103, 210, 0.05);
+      }
+
+      .nav-link.active {
+        color: var(--primary-color);
+        background-color: rgba(25, 103, 210, 0.1);
+      }
+
+      .dropdown-menu {
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 0.5rem 0;
+        margin-top: 0.5rem;
+      }
+
+      .dropdown-item {
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        color: var(--dark-color);
+        transition: all 0.2s ease;
+      }
+
+      .dropdown-item:hover {
+        background-color: rgba(25, 103, 210, 0.05);
+        color: var(--primary-color);
+      }
+
+      .dropdown-item i {
+        width: 20px;
+        text-align: center;
+        margin-right: 10px;
+        color: var(--secondary-color);
+      }
+
+      .dropdown-item:hover i {
+        color: var(--primary-color);
+      }
+
+      .post-job-btn,
+      .job-seeker-btn {
+        border-radius: 50px;
+        padding: 0.5rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .post-job-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: 2px solid var(--primary-color);
+      }
+
+      .post-job-btn:hover {
+        background-color: #0d5bb9;
+        border-color: #0d5bb9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(25, 103, 210, 0.3);
+      }
+
+      .job-seeker-btn {
+        background-color: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+      }
+
+      .job-seeker-btn:hover {
+        background-color: rgba(25, 103, 210, 0.05);
+        transform: translateY(-2px);
+      }
+
+      /* Desktop user avatar */
+      .user-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
         object-fit: cover;
-        flex-shrink: 0;
+        border: 2px solid var(--border-color);
+        transition: all 0.3s ease;
       }
 
-      /* limit card width a bit */
-      .visa-card {
-        max-width: 230px;
-        margin: 0 auto;
+      .user-avatar:hover {
+        border-color: var(--primary-color);
+      }
+
+      .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0.5rem;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
+      }
+
+      .navbar-toggler-icon {
+        background-image: none;
+        width: 24px;
+        height: 24px;
+        position: relative;
+      }
+
+      .navbar-toggler-icon:before {
+        content: "\f0c9";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 1.25rem;
+        color: var(--dark-color);
+      }
+
+      .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+        content: "\f00d";
+      }
+
+      /* Centered navbar styles */
+      .navbar-nav.main-nav {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+      }
+
+      .nav-item-center {
+        margin: 0 0.25rem;
+      }
+
+      /* Mobile specific styles */
+      @media (max-width: 1199.98px) {
+        .navbar-nav.main-nav {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 991.98px) {
+        .navbar-collapse {
+          background-color: white;
+          padding: 1rem;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          margin-top: 1rem;
+        }
+
+        .nav-item {
+          margin-bottom: 0.5rem;
+        }
+
+        .dropdown-menu {
+          box-shadow: none;
+          border-left: 3px solid var(--primary-color);
+          margin-left: 1rem;
+          margin-top: 0.5rem;
+        }
+
+        .post-job-btn,
+        .job-seeker-btn {
+          display: block;
+          width: 100%;
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+
+        .user-dropdown .dropdown-menu {
+          position: static !important;
+          transform: none !important;
+          width: 100%;
+        }
+
+        .nav-actions {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin-top: 1rem;
+        }
+
+        /* Mobile user avatar - larger size */
+        .user-avatar-mobile {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 3px solid var(--primary-color);
+          margin: 0 auto 1rem;
+          display: block;
+        }
+
+        /* Mobile profile section - centered */
+        .mobile-profile-section {
+          text-align: center;
+          padding: 1rem 0;
+          border-top: 1px solid var(--border-color);
+          border-bottom: 1px solid var(--border-color);
+          margin: 1rem 0;
+        }
+
+        .mobile-profile-name {
+          font-weight: 600;
+          font-size: 1.1rem;
+          color: var(--dark-color);
+          margin-bottom: 0.25rem;
+        }
+
+        .mobile-profile-email {
+          color: var(--secondary-color);
+          font-size: 0.9rem;
+          margin-bottom: 1rem;
+        }
+
+        /* Mobile menu items alignment */
+        .navbar-nav.mobile-nav {
+          text-align: center;
+        }
+
+        .mobile-nav .nav-item {
+          margin-bottom: 0.75rem;
+        }
+
+        .mobile-nav .nav-link {
+          padding: 0.75rem 1rem !important;
+          font-size: 1.1rem;
+        }
+      }
+
+      /* Desktop specific styles */
+      @media (min-width: 992px) {
+        .nav-actions {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        /* Hide mobile-specific elements on desktop */
+        .user-avatar-mobile,
+        .mobile-profile-section {
+          display: none !important;
+        }
+      }
+
+      /* Demo content */
+      .demo-content {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+      }
+
+      .demo-content h2 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .device-preview {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+      }
+
+      .device-preview h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+      }
+
+      .preview-container {
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+      }
+
+      .preview-header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.75rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .preview-content {
+        padding: 1rem;
+        min-height: 200px;
+      }
+
+      .preview-navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .preview-logo {
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .preview-hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        cursor: pointer;
+      }
+
+      .preview-hamburger span {
+        width: 20px;
+        height: 2px;
+        background-color: var(--dark-color);
+      }
+
+      .preview-menu {
+        padding: 1rem;
+      }
+
+      .preview-menu-item {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .preview-profile-mobile {
+        text-align: center;
+        padding: 1rem 0;
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+        margin: 1rem 0;
+      }
+
+      .preview-avatar-large {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        margin: 0 auto 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
       }
     </style>
   </head>
-  <body class="bg-white">
-    <section class="py-5 text-center">
+  <body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
-        <h2 class="h4 mb-4 text-dark">Available Visa Pool</h2>
+        <!-- Logo -->
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="https://via.placeholder.com/150x40/1967d2/ffffff?text=JobPortal"
+            alt="JobPortal Logo"
+          />
+        </a>
 
-        <div class="row g-3 g-md-4 justify-content-center">
-          <!-- Card 1 -->
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card visa-card shadow-sm h-100">
-              <div class="card-body">
-                <div
-                  class="d-flex align-items-center justify-content-center gap-3 mb-3 text-start"
-                >
-                  <img
-                    class="visa-flag"
-                    src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg"
-                    alt="Saudi Flag"
-                  />
-                  <h3 class="visa-title h6 fw-semibold">Saudi Driver Visa</h3>
-                </div>
-                <p class="text-muted mb-3"><strong>80</strong> Available</p>
-                <button class="btn btn-primary btn-lg w-100">Apply Now</button>
-              </div>
+        <!-- Mobile Toggle Button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <!-- Centered Navigation -->
+          <ul class="navbar-nav main-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item nav-item-center">
+              <a class="nav-link active" href="index.html">Home</a>
+            </li>
+            <li class="nav-item nav-item-center">
+              <a class="nav-link" href="about-us.html">About Us</a>
+            </li>
+
+            <!-- Pages Dropdown -->
+            <li class="nav-item dropdown nav-item-center">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="pagesDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Pages
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+                <li>
+                  <a class="dropdown-item" href="job-listing.html"
+                    >Job Listing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="job-detail.html">Job Detail</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="candidate-listing.html"
+                    >Candidate Listing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="candidate-detail.html"
+                    >Candidate Detail</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="company-detail.html"
+                    >Company Profile</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="faqs.html">FAQs</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item nav-item-center">
+              <a class="nav-link" href="blog-detail.html">Blog</a>
+            </li>
+            <li class="nav-item nav-item-center">
+              <a class="nav-link" href="contact-us.html">Contact</a>
+            </li>
+          </ul>
+
+          <!-- Right Side Actions -->
+          <div class="nav-actions">
+            <a href="post-job.html" class="btn post-job-btn">Post a Job</a>
+            <a href="candidate-listing.html" class="btn job-seeker-btn"
+              >Job Seeker</a
+            >
+
+            <!-- User Dropdown for Desktop -->
+            <div class="dropdown user-dropdown d-none d-lg-block">
+              <a
+                class="dropdown-toggle d-flex align-items-center text-decoration-none"
+                href="#"
+                id="userDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  src="https://via.placeholder.com/36x36/5f6368/ffffff?text=U"
+                  alt="User"
+                  class="user-avatar"
+                />
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="userDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="login.html"
+                    ><i class="fas fa-sign-in-alt"></i> Login</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="register.html"
+                    ><i class="fas fa-user-plus"></i> Register</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="dashboard.html"
+                    ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="edit-profile.html"
+                    ><i class="fas fa-pencil-alt"></i> Edit Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-briefcase"></i> My Jobs</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-sign-out-alt"></i> Logout</a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card visa-card shadow-sm h-100">
-              <div class="card-body">
-                <div
-                  class="d-flex align-items-center justify-content-center gap-3 mb-3 text-start"
-                >
-                  <img
-                    class="visa-flag"
-                    src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg"
-                    alt="Romania Flag"
-                  />
-                  <h3 class="visa-title h6 fw-semibold">Romania Welder Visa</h3>
-                </div>
-                <p class="text-muted mb-3">
-                  <strong>20</strong> Visas Available
-                </p>
-                <button class="btn btn-primary btn-lg w-100">Apply Now</button>
-              </div>
+          <!-- Mobile Profile Section -->
+          <div class="mobile-profile-section d-lg-none">
+            <img
+              src="https://via.placeholder.com/60x60/1967d2/ffffff?text=U"
+              alt="User"
+              class="user-avatar-mobile"
+            />
+            <div class="mobile-profile-name">John Doe</div>
+            <div class="mobile-profile-email">john.doe@example.com</div>
+
+            <!-- Mobile User Actions -->
+            <div class="d-grid gap-2">
+              <a href="dashboard.html" class="btn btn-outline-primary">
+                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+              </a>
+              <a href="edit-profile.html" class="btn btn-outline-primary">
+                <i class="fas fa-pencil-alt me-2"></i>Edit Profile
+              </a>
+              <a href="#" class="btn btn-outline-primary">
+                <i class="fas fa-briefcase me-2"></i>My Jobs
+              </a>
+              <a href="#" class="btn btn-outline-danger">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+              </a>
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card visa-card shadow-sm h-100">
-              <div class="card-body">
-                <div
-                  class="d-flex align-items-center justify-content-center gap-3 mb-3 text-start"
-                >
-                  <img
-                    class="visa-flag"
-                    src="https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
-                    alt="Malaysia Flag"
-                  />
-                  <h3 class="visa-title h6 fw-semibold">
-                    Malaysia Factory Visa
-                  </h3>
+          <!-- Mobile Navigation -->
+          <ul class="navbar-nav mobile-nav d-lg-none">
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">
+                <i class="fas fa-sign-in-alt me-2"></i>Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="register.html">
+                <i class="fas fa-user-plus me-2"></i>Register
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Demo Content -->
+    <div class="container">
+      <div class="demo-content">
+        <h2>Mobile-Optimized Navbar</h2>
+        <p>This navbar has been optimized for mobile devices with:</p>
+        <ul>
+          <li>
+            <strong>Larger Profile Icon</strong> - 60px profile picture on
+            mobile for better visibility
+          </li>
+          <li>
+            <strong>Centered Profile Section</strong> - Profile information and
+            actions are centered on mobile
+          </li>
+          <li>
+            <strong>Enhanced Mobile Layout</strong> - Better spacing and larger
+            touch targets
+          </li>
+          <li>
+            <strong>Dedicated Mobile Navigation</strong> - Separate layout for
+            mobile with centered alignment
+          </li>
+          <li>
+            <strong>Responsive Design</strong> - Maintains desktop layout on
+            larger screens
+          </li>
+        </ul>
+        <p>
+          Resize your browser to mobile size to see the optimized mobile layout
+          with the larger profile icon.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="device-preview">
+            <h3>Desktop View</h3>
+            <div class="preview-container">
+              <div class="preview-header">
+                <span>Desktop Navigation</span>
+                <div>
+                  <i class="fas fa-desktop me-2"></i>
+                  <i class="fas fa-tablet-alt me-2"></i>
+                  <i class="fas fa-mobile-alt"></i>
                 </div>
-                <p class="text-muted mb-3">
-                  <strong>50</strong> Visas Available
+              </div>
+              <div class="preview-content">
+                <div class="preview-navbar">
+                  <div class="preview-logo">JobPortal</div>
+                  <div class="d-flex gap-3">
+                    <span>Home</span>
+                    <span>About</span>
+                    <span>Pages</span>
+                    <span>Blog</span>
+                    <span>Contact</span>
+                  </div>
+                  <div class="d-flex gap-2 align-items-center">
+                    <button class="btn btn-sm btn-primary">Post Job</button>
+                    <div
+                      class="user-avatar"
+                      style="
+                        width: 36px;
+                        height: 36px;
+                        background: #5f6368;
+                        border-radius: 50%;
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <p class="mt-3">
+                  Standard profile icon size on desktop (36px).
                 </p>
-                <button class="btn btn-primary btn-lg w-100">Apply Now</button>
               </div>
             </div>
           </div>
-
-          <!-- Card 4 -->
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card visa-card shadow-sm h-100">
-              <div class="card-body">
-                <div
-                  class="d-flex align-items-center justify-content-center gap-3 mb-3 text-start"
-                >
-                  <img
-                    class="visa-flag"
-                    src="https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
-                    alt="Malaysia Flag"
-                  />
-                  <h3 class="visa-title h6 fw-semibold">
-                    Malaysia Factory Visa
-                  </h3>
+        </div>
+        <div class="col-md-6">
+          <div class="device-preview">
+            <h3>Mobile View</h3>
+            <div class="preview-container">
+              <div class="preview-header">
+                <span>Mobile Navigation</span>
+                <div>
+                  <i class="fas fa-mobile-alt"></i>
                 </div>
-                <p class="text-muted mb-3">
-                  <strong>50</strong> Visas Available
+              </div>
+              <div class="preview-content">
+                <div class="preview-navbar">
+                  <div class="preview-logo">JobPortal</div>
+                  <div class="preview-hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+                <div class="preview-profile-mobile">
+                  <div class="preview-avatar-large">U</div>
+                  <div>John Doe</div>
+                  <div class="text-muted small">john.doe@example.com</div>
+                </div>
+                <div class="preview-menu">
+                  <div class="preview-menu-item">Home</div>
+                  <div class="preview-menu-item">About Us</div>
+                  <div class="preview-menu-item">Pages</div>
+                  <div class="preview-menu-item">Blog</div>
+                  <div class="preview-menu-item">Contact</div>
+                  <div class="preview-menu-item">
+                    <button class="btn btn-sm btn-primary w-100">
+                      Post a Job
+                    </button>
+                  </div>
+                  <div class="preview-menu-item">
+                    <button class="btn btn-sm btn-outline-primary w-100">
+                      Job Seeker
+                    </button>
+                  </div>
+                </div>
+                <p class="mt-3 text-center text-muted">
+                  Larger profile icon (60px) on mobile
                 </p>
-                <button class="btn btn-primary btn-lg w-100">Apply Now</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Bootstrap 5 JS (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/boot
-  strap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Close dropdowns when clicking outside
+      document.addEventListener("click", function (e) {
+        if (!e.target.closest(".dropdown")) {
+          const openDropdowns = document.querySelectorAll(".dropdown.show");
+          openDropdowns.forEach(function (dropdown) {
+            dropdown.classList.remove("show");
+          });
+        }
+      });
+
+      // Close mobile menu when clicking on a link
+      const navLinks = document.querySelectorAll(".nav-link");
+      const navbarToggler = document.querySelector(".navbar-toggler");
+      const navbarCollapse = document.querySelector(".navbar-collapse");
+
+      navLinks.forEach(function (navLink) {
+        navLink.addEventListener("click", function () {
+          if (window.innerWidth < 992) {
+            navbarToggler.setAttribute("aria-expanded", "false");
+            navbarCollapse.classList.remove("show");
+          }
+        });
+      });
+
+      // Add active class to clicked nav item
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", function () {
+          document.querySelectorAll(".nav-link").forEach((item) => {
+            item.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>
-
-<!-- Top Featured Countries Start -->
-<div class="text-center" style="padding: 50px 0">
-  <div class="container">
-    <div class="titleTop text-center mb-4">
-      <h3 class="mb-0">Featured <span>Countries</span></h3>
-    </div>
-    <div class="row">
-      <!-- Card 1 -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="visa-card">
-          <div class="card-body">
-            <div
-              class="text-left gap-3"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-              "
-            >
-              <img
-                class="visa-flag"
-                src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg"
-                alt="Saudi Flag"
-              />
-              <h3 class="visa-title h6">Saudi Driver Visa</h3>
-            </div>
-            <p class="text-muted" style="margin-bottom: 15px">
-              <strong>80</strong> Available
-            </p>
-            <button class="btn btn-primary btn-lg btn-block">Apply Now</button>
-          </div>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="visa-card">
-          <div class="card-body">
-            <div
-              class="text-left gap-3"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-              "
-            >
-              <img
-                class="visa-flag"
-                src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flag_of_Romania.svg"
-                alt="Romania Flag"
-              />
-              <h3 class="visa-title h6">Romania Welder Visa</h3>
-            </div>
-            <p class="text-muted" style="margin-bottom: 15px">
-              <strong>20</strong> Visas Available
-            </p>
-            <button class="btn btn-primary btn-lg btn-block">Apply Now</button>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="visa-card">
-          <div class="card-body">
-            <div
-              class="text-left gap-3"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-              "
-            >
-              <img
-                class="visa-flag"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
-                alt="Malaysia Flag"
-              />
-              <h3 class="visa-title h6">Malaysia Factory Visa</h3>
-            </div>
-            <p class="text-muted" style="margin-bottom: 15px">
-              <strong>50</strong> Visas Available
-            </p>
-            <button class="btn btn-primary btn-lg btn-block">Apply Now</button>
-          </div>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="visa-card">
-          <div class="card-body">
-            <div
-              class="text-left gap-3"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-              "
-            >
-              <img
-                class="visa-flag"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
-                alt="Malaysia Flag"
-              />
-              <h3 class="visa-title h6">Malaysia Factory Visa</h3>
-            </div>
-            <p class="text-muted" style="margin-bottom: 15px">
-              <strong>50</strong> Visas Available
-            </p>
-            <button class="btn btn-primary btn-lg btn-block">Apply Now</button>
-          </div>
-        </div>
-      </div>
-      <!-- Card 5 -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="visa-card">
-          <div class="card-body">
-            <div
-              class="text-left gap-3"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-              "
-            >
-              <img
-                class="visa-flag"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
-                alt="Malaysia Flag"
-              />
-              <h3 class="visa-title h6">Malaysia Factory Visa</h3>
-            </div>
-            <p class="text-muted" style="margin-bottom: 15px">
-              <strong>50</strong> Visas Available
-            </p>
-            <button class="btn btn-primary btn-lg btn-block">Apply Now</button>
-          </div>
-        </div>
-      </div>
-      <!-- Card 6 -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="visa-card">
-          <div class="card-body">
-            <div
-              class="text-left gap-3"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-              "
-            >
-              <img
-                class="visa-flag"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
-                alt="Malaysia Flag"
-              />
-              <h3 class="visa-title h6">Malaysia Factory Visa</h3>
-            </div>
-            <p class="text-muted" style="margin-bottom: 15px">
-              <strong>50</strong> Visas Available
-            </p>
-            <button class="btn btn-primary btn-lg btn-block">Apply Now</button>
-          </div>
-        </div>
-      </div>
-      <!-- Card 7 -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="visa-card">
-          <div class="card-body">
-            <div
-              class="text-left gap-3"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-              "
-            >
-              <img
-                class="visa-flag"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
-                alt="Malaysia Flag"
-              />
-              <h3 class="visa-title h6">Malaysia Factory Visa</h3>
-            </div>
-            <p class="text-muted" style="margin-bottom: 15px">
-              <strong>50</strong> Visas Available
-            </p>
-            <button class="btn btn-primary btn-lg btn-block">Apply Now</button>
-          </div>
-        </div>
-      </div>
-      <!-- Card 8 -->
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <div class="visa-card">
-          <div class="card-body">
-            <div
-              class="text-left gap-3"
-              style="
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 15px;
-              "
-            >
-              <img
-                class="visa-flag"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/66/Flag_of_Malaysia.svg"
-                alt="Malaysia Flag"
-              />
-              <h3 class="visa-title h6">Malaysia Factory Visa</h3>
-            </div>
-            <p class="text-muted" style="margin-bottom: 15px">
-              <strong>50</strong> Visas Available
-            </p>
-            <button class="btn btn-primary btn-lg btn-block">Apply Now</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--view button-->
-    <div class="viewallbtn"><a href="#.">View All Latest Jobs</a></div>
-    <!--view button end-->
-  </div>
-</div>
-<!-- Top Featured Countries End -->
