@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mobile Optimized Navbar</title>
+    <title>Mobile Optimized Navbar with Dropdown</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -26,6 +26,7 @@
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         padding-top: 80px;
         background-color: #f5f5f5;
+        min-height: 100vh;
       }
 
       .navbar {
@@ -189,6 +190,8 @@
           border-radius: 8px;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           margin-top: 1rem;
+          max-height: 80vh;
+          overflow-y: auto;
         }
 
         .nav-item {
@@ -269,6 +272,38 @@
           padding: 0.75rem 1rem !important;
           font-size: 1.1rem;
         }
+
+        /* Mobile dropdown toggle */
+        .mobile-dropdown-toggle {
+          background: none;
+          border: none;
+          width: 100%;
+          text-align: center;
+          padding: 0.75rem 1rem;
+          font-size: 1.1rem;
+          color: var(--dark-color);
+          font-weight: 500;
+        }
+
+        .mobile-dropdown-toggle:focus {
+          outline: none;
+        }
+
+        .mobile-dropdown-toggle i {
+          margin-left: 0.5rem;
+          transition: transform 0.3s ease;
+        }
+
+        .mobile-dropdown-toggle[aria-expanded="true"] i {
+          transform: rotate(180deg);
+        }
+
+        /* Ensure full visibility */
+        .navbar-collapse.show {
+          display: block !important;
+          height: auto !important;
+          visibility: visible !important;
+        }
       }
 
       /* Desktop specific styles */
@@ -281,7 +316,8 @@
 
         /* Hide mobile-specific elements on desktop */
         .user-avatar-mobile,
-        .mobile-profile-section {
+        .mobile-profile-section,
+        .navbar-nav.mobile-nav {
           display: none !important;
         }
       }
@@ -390,6 +426,20 @@
         color: white;
         font-weight: bold;
       }
+
+      /* Instructions */
+      .instructions {
+        background-color: #e8f4fd;
+        border-left: 4px solid var(--primary-color);
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+      }
+
+      .instructions h4 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
     </style>
   </head>
   <body>
@@ -410,6 +460,9 @@
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarMain"
+          aria-controls="navbarMain"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -433,6 +486,7 @@
                 id="pagesDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
                 Pages
               </a>
@@ -487,6 +541,7 @@
                 id="userDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
+                aria-expanded="false"
               >
                 <img
                   src="https://via.placeholder.com/36x36/5f6368/ffffff?text=U"
@@ -534,7 +589,7 @@
             </div>
           </div>
 
-          <!-- Mobile Profile Section -->
+          <!-- Mobile Profile Section with Dropdown -->
           <div class="mobile-profile-section d-lg-none">
             <img
               src="https://via.placeholder.com/60x60/1967d2/ffffff?text=U"
@@ -544,25 +599,48 @@
             <div class="mobile-profile-name">John Doe</div>
             <div class="mobile-profile-email">john.doe@example.com</div>
 
-            <!-- Mobile User Actions -->
-            <div class="d-grid gap-2">
-              <a href="dashboard.html" class="btn btn-outline-primary">
-                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
-              </a>
-              <a href="edit-profile.html" class="btn btn-outline-primary">
-                <i class="fas fa-pencil-alt me-2"></i>Edit Profile
-              </a>
-              <a href="#" class="btn btn-outline-primary">
-                <i class="fas fa-briefcase me-2"></i>My Jobs
-              </a>
-              <a href="#" class="btn btn-outline-danger">
-                <i class="fas fa-sign-out-alt me-2"></i>Logout
-              </a>
+            <!-- Mobile User Dropdown -->
+            <div class="dropdown">
+              <button
+                class="mobile-dropdown-toggle"
+                type="button"
+                id="mobileUserDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Account Options <i class="fas fa-chevron-down"></i>
+              </button>
+              <ul
+                class="dropdown-menu w-100"
+                aria-labelledby="mobileUserDropdown"
+              >
+                <li>
+                  <a class="dropdown-item" href="dashboard.html"
+                    ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="edit-profile.html"
+                    ><i class="fas fa-pencil-alt"></i> Edit Profile</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-briefcase"></i> My Jobs</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    ><i class="fas fa-sign-out-alt"></i> Logout</a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
 
           <!-- Mobile Navigation -->
-          <ul class="navbar-nav mobile-nav d-lg-none">
+          <ul class="navbar-nav mobile-nav d-lg-none mt-3">
             <li class="nav-item">
               <a class="nav-link" href="login.html">
                 <i class="fas fa-sign-in-alt me-2"></i>Login
@@ -582,34 +660,45 @@
     <!-- Demo Content -->
     <div class="container">
       <div class="demo-content">
-        <h2>Mobile-Optimized Navbar</h2>
-        <p>This navbar has been optimized for mobile devices with:</p>
-        <ul>
-          <li>
-            <strong>Larger Profile Icon</strong> - 60px profile picture on
-            mobile for better visibility
-          </li>
-          <li>
-            <strong>Centered Profile Section</strong> - Profile information and
-            actions are centered on mobile
-          </li>
-          <li>
-            <strong>Enhanced Mobile Layout</strong> - Better spacing and larger
-            touch targets
-          </li>
-          <li>
-            <strong>Dedicated Mobile Navigation</strong> - Separate layout for
-            mobile with centered alignment
-          </li>
-          <li>
-            <strong>Responsive Design</strong> - Maintains desktop layout on
-            larger screens
-          </li>
-        </ul>
+        <h2>Mobile-Optimized Navbar with Dropdown</h2>
+
+        <div class="instructions">
+          <h4>Mobile Features:</h4>
+          <ul>
+            <li>
+              <strong>Full Visibility</strong> - Navbar content is fully visible
+              on mobile
+            </li>
+            <li>
+              <strong>Working Dropdown</strong> - Profile section has a dropdown
+              with account options
+            </li>
+            <li>
+              <strong>Larger Profile Icon</strong> - 60px profile picture for
+              better visibility
+            </li>
+            <li>
+              <strong>Scrollable Menu</strong> - Menu is scrollable if content
+              exceeds screen height
+            </li>
+          </ul>
+        </div>
+
         <p>
-          Resize your browser to mobile size to see the optimized mobile layout
-          with the larger profile icon.
+          This navbar has been optimized for mobile devices with full visibility
+          and working dropdown functionality.
         </p>
+
+        <h5>How to test:</h5>
+        <ol>
+          <li>Resize your browser to mobile size or use browser dev tools</li>
+          <li>Click the hamburger menu to open the navigation</li>
+          <li>Scroll to see the entire menu content</li>
+          <li>
+            Click "Account Options" to open the dropdown with Dashboard, Edit
+            Profile, etc.
+          </li>
+        </ol>
       </div>
 
       <div class="row">
@@ -649,7 +738,7 @@
                   </div>
                 </div>
                 <p class="mt-3">
-                  Standard profile icon size on desktop (36px).
+                  Standard profile icon with dropdown on desktop.
                 </p>
               </div>
             </div>
@@ -678,6 +767,11 @@
                   <div class="preview-avatar-large">U</div>
                   <div>John Doe</div>
                   <div class="text-muted small">john.doe@example.com</div>
+                  <div class="mt-2">
+                    <button class="btn btn-sm btn-outline-primary">
+                      Account Options <i class="fas fa-chevron-down ms-1"></i>
+                    </button>
+                  </div>
                 </div>
                 <div class="preview-menu">
                   <div class="preview-menu-item">Home</div>
@@ -697,7 +791,7 @@
                   </div>
                 </div>
                 <p class="mt-3 text-center text-muted">
-                  Larger profile icon (60px) on mobile
+                  Larger profile icon with dropdown on mobile
                 </p>
               </div>
             </div>
@@ -708,38 +802,57 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Close dropdowns when clicking outside
-      document.addEventListener("click", function (e) {
-        if (!e.target.closest(".dropdown")) {
-          const openDropdowns = document.querySelectorAll(".dropdown.show");
-          openDropdowns.forEach(function (dropdown) {
-            dropdown.classList.remove("show");
+      // Enhanced mobile functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbarToggler = document.querySelector(".navbar-toggler");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach(function (navLink) {
+          navLink.addEventListener("click", function () {
+            if (window.innerWidth < 992) {
+              navbarToggler.setAttribute("aria-expanded", "false");
+              navbarCollapse.classList.remove("show");
+            }
           });
-        }
-      });
+        });
 
-      // Close mobile menu when clicking on a link
-      const navLinks = document.querySelectorAll(".nav-link");
-      const navbarToggler = document.querySelector(".navbar-toggler");
-      const navbarCollapse = document.querySelector(".navbar-collapse");
+        // Add active class to clicked nav item
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.addEventListener("click", function () {
+            document.querySelectorAll(".nav-link").forEach((item) => {
+              item.classList.remove("active");
+            });
+            this.classList.add("active");
+          });
+        });
 
-      navLinks.forEach(function (navLink) {
-        navLink.addEventListener("click", function () {
-          if (window.innerWidth < 992) {
-            navbarToggler.setAttribute("aria-expanded", "false");
-            navbarCollapse.classList.remove("show");
+        // Close dropdowns when clicking outside (for desktop)
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".dropdown") && window.innerWidth >= 992) {
+            const openDropdowns = document.querySelectorAll(".dropdown.show");
+            openDropdowns.forEach(function (dropdown) {
+              dropdown.classList.remove("show");
+            });
           }
         });
-      });
 
-      // Add active class to clicked nav item
-      document.querySelectorAll(".nav-link").forEach((link) => {
-        link.addEventListener("click", function () {
-          document.querySelectorAll(".nav-link").forEach((item) => {
-            item.classList.remove("active");
-          });
-          this.classList.add("active");
-        });
+        // Ensure mobile menu is fully visible
+        function ensureMobileMenuVisibility() {
+          if (window.innerWidth < 992) {
+            navbarCollapse.style.maxHeight = "80vh";
+            navbarCollapse.style.overflowY = "auto";
+          } else {
+            navbarCollapse.style.maxHeight = "";
+            navbarCollapse.style.overflowY = "";
+          }
+        }
+
+        // Call on load and resize
+        ensureMobileMenuVisibility();
+        window.addEventListener("resize", ensureMobileMenuVisibility);
       });
     </script>
   </body>
