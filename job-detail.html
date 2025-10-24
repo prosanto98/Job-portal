@@ -48,28 +48,16 @@
             <div class="navbar navbar-default" role="navigation">
               <div class="navbar-collapse collapse" id="nav-main">
                 <ul class="nav navbar-nav">
-                  <li class="dropdown active">
-                    <a href="index.html">Home <span class="caret"></span></a>
-                    <!-- dropdown start -->
-                    <ul class="dropdown-menu">
-                      <li><a href="index.html">Home Static Image</a></li>
-                      <li><a href="index2.html">Home With Map</a></li>
-                      <li><a href="index3.html">Home With Slider</a></li>
-                    </ul>
-                    <!-- dropdown end -->
+                  <li>
+                    <a href="index.html">Home</a>
                   </li>
                   <li><a href="about-us.html">About us</a></li>
                   <li class="dropdown">
                     <a href="#.">Pages <span class="caret"></span></a>
                     <!-- dropdown start -->
                     <ul class="dropdown-menu">
-                      <li><a href="about-us.html">About Us</a></li>
-                      <li><a href="login.html">Login</a></li>
-                      <li><a href="register.html">Register</a></li>
                       <li><a href="job-listing.html">Job Listing</a></li>
-                      <li class="active">
-                        <a href="job-detail.html">Job Detail</a>
-                      </li>
+                      <li><a href="job-detail.html">Job Detail</a></li>
                       <li>
                         <a href="candidate-listing.html">Candidate Listing</a>
                       </li>
@@ -77,27 +65,12 @@
                         <a href="candidate-detail.html">Candidate Detail</a>
                       </li>
                       <li><a href="company-detail.html">Company Profile</a></li>
-                      <li><a href="edit-profile.html">Edit Profile</a></li>
-                      <li><a href="post-job.html">Post a Job</a></li>
-                      <li><a href="packages.html">Packages</a></li>
                       <li><a href="faqs.html">FAQs</a></li>
-                      <li><a href="404.html">404 Page</a></li>
-                      <li><a href="typography.html">Typography</a></li>
                     </ul>
                     <!-- dropdown end -->
                   </li>
-                  <li class="dropdown">
-                    <a href="blog.html">Blog <span class="caret"></span></a>
-                    <!-- dropdown start -->
-                    <ul class="dropdown-menu">
-                      <li><a href="blog.html">Blog List</a></li>
-                      <li><a href="blog-detail.html">Blog Detail</a></li>
-                      <li><a href="blog-grid.html">Blog Grid</a></li>
-                      <li>
-                        <a href="blog-full-width.html">Blog Grid Full Width</a>
-                      </li>
-                    </ul>
-                    <!-- dropdown end -->
+                  <li>
+                    <a href="blog-detail.html">Blog</a>
                   </li>
                   <li><a href="contact-us.html">Contact</a></li>
                   <li class="postjob">
@@ -105,6 +78,53 @@
                   </li>
                   <li class="jobseeker">
                     <a href="candidate-listing.html">Job Seeker</a>
+                  </li>
+                  <li class="dropdown userbtn">
+                    <a href=""
+                      ><img
+                        src="images/candidates/01.jpg"
+                        alt=""
+                        class="userimg"
+                    /></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="login.html">
+                          <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+                        </a>
+                      </li>
+                      <li>
+                        <a href="register.html">
+                          <i class="fa fa-user-plus" aria-hidden="true"></i>
+                          Register
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="dashboard.html"
+                          ><i class="fa fa-tachometer" aria-hidden="true"></i>
+                          Dashboard</a
+                        >
+                      </li>
+                      <li>
+                        <a href="edit-profile.html"
+                          ><i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                          Profile</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-briefcase" aria-hidden="true"></i> My
+                          Jobs</a
+                        >
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-sign-out" aria-hidden="true"></i>
+                          Logout</a
+                        >
+                      </li>
+                    </ul>
                   </li>
                 </ul>
                 <!-- Nav collapes end -->
@@ -119,6 +139,7 @@
       <!-- Header container end -->
     </div>
     <!-- Header end -->
+
     <div class="listpgWraper">
       <div class="container">
         <!-- Job Header start -->
@@ -315,7 +336,6 @@
             </div>
           </div>
           <!-- related jobs end -->
-
           <div class="col-md-4">
             <!-- Job Detail start -->
             <div class="job-header">
@@ -439,186 +459,90 @@
       </div>
     </div>
 
-    <!--Footer-->
-    <div class="footerWrap">
+    <!-- Footer -->
+    <footer class="footerWrap">
       <div class="container">
-        <div class="row">
-          <!--About Us-->
-          <div class="col-md-3 col-sm-12">
-            <div class="ft-logo">
-              <img src="images/logo.png" alt="Your alt text here" />
+        <div class="row gx-5 gy-4 text-left footer-cols">
+          <!-- Column 1 -->
+          <div class="col-lg-3 col-md-6 footer-col">
+            <div class="ft-logo mb-3">
+              <img
+                src="images/logo.png"
+                alt="Logo"
+                class="img-fluid"
+                style="max-width: 160px"
+              />
             </div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et
-              consequat elit. Proin molestie eros sed urna auctor lobortis.
-              Integer eget scelerisque arcu. Pellentesque scelerisque
-              pellentesque nisl, sit amet aliquam mi pellentesque fringilla. Ut
-              porta augue a libero pretium laoreet. Suspendisse sit amet massa
-              accumsan, pulvinar augue id, tristique tortor.
+              At <strong>Prime Work Solutions</strong>, we simplify hiring and
+              job searching. Employers get access to top talents, while job
+              seekers unlock global career opportunities.
             </p>
-
-            <!-- Social Icons -->
-            <div class="social">
-              <a href="#." target="_blank">
-                <i class="fa fa-facebook-square" aria-hidden="true"></i
-              ></a>
-              <a href="#." target="_blank"
-                ><i class="fa fa-twitter-square" aria-hidden="true"></i
-              ></a>
-              <a href="#." target="_blank"
-                ><i class="fa fa-google-plus-square" aria-hidden="true"></i
-              ></a>
-              <a href="#." target="_blank"
-                ><i class="fa fa-linkedin-square" aria-hidden="true"></i
-              ></a>
-              <a href="#." target="_blank"
-                ><i class="fa fa-youtube-square" aria-hidden="true"></i
-              ></a>
-            </div>
-            <!-- Social Icons end -->
           </div>
-          <!--About us End-->
 
-          <!--Quick Links-->
-          <div class="col-md-2 col-sm-6">
+          <!-- Column 2 -->
+          <div class="col-lg-3 col-md-6 footer-col">
             <h5>Quick Links</h5>
-            <!--Quick Links menu Start-->
-            <ul class="quicklinks">
-              <li><a href="#.">Career Services</a></li>
-              <li><a href="#.">CV Writing</a></li>
-              <li><a href="#.">Career Resources</a></li>
-              <li><a href="#.">Company Listings</a></li>
-              <li><a href="#.">Success Stories</a></li>
-              <li><a href="#.">Contact Us</a></li>
-              <li><a href="#.">Create Account</a></li>
-              <li><a href="#.">Post a Job</a></li>
-              <li><a href="#.">Contact Sales</a></li>
+            <ul class="list-unstyled quicklinks">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Job Details</a></li>
             </ul>
           </div>
-          <!--Quick Links menu end-->
 
-          <!--Jobs By Industry-->
-          <div class="col-md-3 col-sm-6">
-            <h5>Jobs By Industry</h5>
-            <!--Industry menu Start-->
-            <ul class="quicklinks">
-              <li><a href="#.">Information Technology Jobs</a></li>
-              <li><a href="#.">Recruitment/Employment Firms Jobs</a></li>
-              <li><a href="#.">Education/Training Jobs</a></li>
-              <li><a href="#.">Manufacturing Jobs</a></li>
-              <li><a href="#.">Call Center Jobs</a></li>
-              <li><a href="#.">N.G.O./Social Services Jobs</a></li>
-              <li><a href="#.">BPO Jobs</a></li>
-              <li><a href="#.">Textiles/Garments Jobs</a></li>
-              <li><a href="#.">Telecommunication/ISP Jobs</a></li>
+          <!-- Column 3 -->
+          <div class="col-lg-3 col-md-6 footer-col">
+            <h5>More Links</h5>
+            <ul class="list-unstyled quicklinks">
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Post a Job</a></li>
+              <li><a href="#">Find a Job</a></li>
+              <li><a href="#">Partners</a></li>
             </ul>
-            <!--Industry menu End-->
-            <div class="clear"></div>
           </div>
 
-          <!--Latest Articles-->
-          <div class="col-md-4 col-sm-12">
-            <h5>Latest Articles</h5>
-            <ul class="posts-list">
-              <!--Article 1-->
-              <li>
-                <article class="post post-list">
-                  <div class="entry-content media">
-                    <div class="media-left">
-                      <a href="#." title="" class="entry-image">
-                        <img
-                          width="80"
-                          height="80"
-                          src="images/news-1.jpg"
-                          alt="Your alt text here"
-                        />
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="entry-title">
-                        <a href="#.">Sed fermentum at lectus nec porta.</a>
-                      </h4>
-                      <div class="entry-content-inner">
-                        <div class="entry-meta">
-                          <span class="entry-date">Jan 28, 2016</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </li>
-              <!--Article end 1-->
-
-              <!--Article 2-->
-              <li>
-                <article class="post post-list">
-                  <div class="entry-content media">
-                    <div class="media-left">
-                      <a href="#." title="" class="entry-image">
-                        <img
-                          width="80"
-                          height="80"
-                          src="images/news-2.jpg"
-                          alt="Your alt text here"
-                        />
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="entry-title">
-                        <a href="#.">Sed fermentum at lectus nec porta.</a>
-                      </h4>
-                      <div class="entry-content-inner">
-                        <div class="entry-meta">
-                          <span class="entry-date">Jan 28, 2016</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </li>
-              <!--Article end 2-->
-
-              <!--Article 3-->
-              <li>
-                <article class="post post-list">
-                  <div class="entry-content media">
-                    <div class="media-left">
-                      <a href="#." title="" class="entry-image">
-                        <img
-                          width="80"
-                          height="80"
-                          src="images/news-3.jpg"
-                          alt="Your alt text here"
-                        />
-                      </a>
-                    </div>
-                    <div class="media-body">
-                      <h4 class="entry-title">
-                        <a href="#.">Sed fermentum at lectus nec porta.</a>
-                      </h4>
-                      <div class="entry-content-inner">
-                        <div class="entry-meta">
-                          <span class="entry-date">Jan 28, 2016</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </li>
-              <!--Article end 3-->
+          <!-- Column 4 -->
+          <div class="col-lg-3 col-md-6 footer-col">
+            <h5>Support</h5>
+            <ul class="list-unstyled quicklinks">
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms & Services</a></li>
+              <li><a href="#">Affiliate Program</a></li>
             </ul>
           </div>
         </div>
+
+        <!-- Social Icons -->
+        <div class="text-center mt-4">
+          <div class="social">
+            <a href="#" class="social-link"
+              ><i class="fa fa-facebook-square"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa fa-twitter-square"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa fa-google-plus-square"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa fa-linkedin-square"></i
+            ></a>
+            <a href="#" class="social-link"
+              ><i class="fa fa-youtube-square"></i
+            ></a>
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
     <!--Footer end-->
 
     <!--Copyright-->
     <div class="copyright">
       <div class="container">
         <div class="bttxt">
-          Copyright &copy; 2017 Your Company Name. All Rights Reserved. Design
-          by:
+          Copyright &copy; 2025 Job Portal. All Rights Reserved. Design by:
           <a href="http://graphicriver.net/user/ecreativesol" target="_blank"
             >eCreativeSolutions</a
           >
@@ -635,5 +559,38 @@
 
     <!-- Custom js -->
     <script src="js/script.js"></script>
+    <!-- dropdown -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(
+          ".navbar-nav .dropdown > a"
+        );
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("click", function (e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            document
+              .querySelectorAll(".navbar-nav .dropdown.open")
+              .forEach((openDropdown) => {
+                if (openDropdown !== parent) {
+                  openDropdown.classList.remove("open");
+                }
+              });
+
+            parent.classList.toggle("open");
+          });
+        });
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".navbar-nav .dropdown")) {
+            document
+              .querySelectorAll(".navbar-nav .dropdown.open")
+              .forEach((openDropdown) => {
+                openDropdown.classList.remove("open");
+              });
+          }
+        });
+      });
+    </script>
+    <!-- dropdown -->
   </body>
 </html>

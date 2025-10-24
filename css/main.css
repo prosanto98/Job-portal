@@ -3828,3 +3828,50 @@ Large Mobile Screen
   width: 100%;
 }
 /* Register input size */
+
+/* Report button popup */
+/* Popup Modal Styles */
+.modal-dialog {
+  max-width: 400px;
+  margin: 80px auto;
+}
+.modal-content {
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.modal-header {
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+.modal-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+.modal-body select,
+.modal-body textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+}
+.modal-body textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.modal-footer {
+  text-align: center;
+  border-top: none;
+}
+.modal-footer .btn {
+  width: 100%;
+  font-weight: 600;
+}
+@media (max-width: 480px) {
+  .modal-dialog {
+    width: 90%;
+    margin: 60px auto;
+  }
+}

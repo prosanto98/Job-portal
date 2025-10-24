@@ -487,8 +487,12 @@
     <!-- Bootstrap's JavaScript -->
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!-- intl-tel-input JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
 
-    <!-- Dropdown open and close -->
+    <!-- Custom js -->
+    <script src="js/script.js"></script>
+    <!-- dropdown -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const dropdowns = document.querySelectorAll(
@@ -520,40 +524,6 @@
         });
       });
     </script>
-    <!-- Dropdown open and close -->
-
-    <!-- intl-tel-input JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
-
-    <!-- Country code start-->
-    <script>
-      // Initialize the phone input
-      const input = document.querySelector("#phone");
-      window.intlTelInput(input, {
-        initialCountry: "bd", // default country
-        preferredCountries: [
-          "bd",
-          "in",
-          "us",
-          "gb",
-          "ca",
-          "ae",
-          "pk",
-          "sa",
-          "au",
-          "sg",
-          "de",
-          "fr",
-          "it",
-          "es",
-          "nl",
-          "cn",
-          "jp",
-        ], // top countries
-        utilsScript:
-          "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js",
-      });
-    </script>
-    <!-- Country code end-->
+    <!-- dropdown -->
   </body>
 </html>
