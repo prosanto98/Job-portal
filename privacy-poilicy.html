@@ -564,7 +564,7 @@
             <h5>Support</h5>
             <ul class="list-unstyled quicklinks">
               <li><a href="#">FAQ</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="/pri">Privacy Policy</a></li>
               <li><a href="#">Terms & Services</a></li>
               <li><a href="#">Affiliate Program</a></li>
             </ul>
@@ -612,9 +612,42 @@
       <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
     </button>
 
-    <!-- jQuery and Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Bootstrap's JavaScript -->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- dropdown -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdowns = document.querySelectorAll(
+          ".navbar-nav .dropdown > a"
+        );
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("click", function (e) {
+            e.preventDefault();
+            const parent = this.parentElement;
+            document
+              .querySelectorAll(".navbar-nav .dropdown.open")
+              .forEach((openDropdown) => {
+                if (openDropdown !== parent) {
+                  openDropdown.classList.remove("open");
+                }
+              });
+
+            parent.classList.toggle("open");
+          });
+        });
+        document.addEventListener("click", function (e) {
+          if (!e.target.closest(".navbar-nav .dropdown")) {
+            document
+              .querySelectorAll(".navbar-nav .dropdown.open")
+              .forEach((openDropdown) => {
+                openDropdown.classList.remove("open");
+              });
+          }
+        });
+      });
+    </script>
+    <!-- dropdown -->
 
     <script>
       // Smooth scroll for anchor links
