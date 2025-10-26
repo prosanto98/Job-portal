@@ -62,6 +62,70 @@
         z-index: 9999;
       }
 
+      /* --- Readability & Text Layout Fix --- */
+      .privacy-content {
+        line-height: 1.8;
+        font-size: 15px;
+        color: #333;
+      }
+
+      .privacy-content p {
+        margin-bottom: 12px;
+      }
+
+      .privacy-content ul {
+        margin-bottom: 15px;
+        padding-left: 20px;
+      }
+
+      .privacy-content ul li {
+        margin-bottom: 6px;
+      }
+
+      .section-title {
+        font-size: 20px;
+        font-weight: 500;
+        color: #0d6efd;
+        margin-top: 25px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .privacy-content h4 {
+        font-size: 16px;
+        font-weight: 500;
+        color: #222;
+        margin-top: 18px;
+        margin-bottom: 8px;
+      }
+
+      .toc h4 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .toc ul li a {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .small-muted {
+        font-size: 13px;
+        color: #777;
+      }
+
+      @media (max-width: 767px) {
+        .privacy-content {
+          font-size: 14.5px;
+          line-height: 1.7;
+        }
+
+        .section-title {
+          font-size: 18px;
+        }
+      }
+
       /* Print styles */
       @media print {
         .hero,
@@ -199,11 +263,11 @@
     <!-- privacy polieses srart-->
     <main class="container">
       <div class="row">
-        <!-- TOC / Sidebar -->
+        <!-- Sidebar / TOC -->
         <aside class="col-md-3 hidden-sm hidden-xs">
           <div class="panel panel-card">
             <div class="panel-body toc">
-              <h4>Table of contents</h4>
+              <h4>Table of Contents</h4>
               <ul class="nav nav-pills nav-stacked">
                 <li><a href="#info">1. Information We Collect</a></li>
                 <li><a href="#use">2. How We Use Your Information</a></li>
@@ -223,17 +287,12 @@
           </div>
         </aside>
 
-        <!-- Content -->
+        <!-- Main Content -->
         <section class="col-md-9">
           <div class="panel panel-default panel-card">
-            <div class="panel-body">
+            <div class="panel-body privacy-content">
               <article id="info">
                 <h3 class="section-title">1. Information We Collect</h3>
-                <p>
-                  We collect the following categories of information from users
-                  of our Platform.
-                </p>
-
                 <h4>Personal Information (Job Seekers)</h4>
                 <ul>
                   <li>Full name, email address, phone number, and address</li>
@@ -246,7 +305,6 @@
                   </li>
                   <li>Profile photo or verification documents</li>
                 </ul>
-
                 <h4>Company Information (Employers)</h4>
                 <ul>
                   <li>Company name and contact details</li>
@@ -254,7 +312,6 @@
                   <li>Trade license or registration details</li>
                   <li>Job postings and recruitment data</li>
                 </ul>
-
                 <h4>Automatically Collected Information</h4>
                 <ul>
                   <li>IP address, browser type, and version</li>
@@ -267,7 +324,6 @@
 
               <article id="use">
                 <h3 class="section-title">2. How We Use Your Information</h3>
-                <p>We use collected information to:</p>
                 <ul>
                   <li>Create and manage accounts</li>
                   <li>Verify identities and prevent fraud</li>
@@ -293,17 +349,16 @@
                 </h3>
                 <p>
                   Your NID and Passport details are collected solely for
-                  identity verification and legal compliance. We implement the
-                  following safeguards:
+                  identity verification and legal compliance.
                 </p>
                 <ul>
                   <li>Encryption in transit and at rest</li>
-                  <li>Secure servers and restricted access controls</li>
+                  <li>Secure servers with restricted access</li>
                   <li>Access limited to authorized personnel only</li>
                 </ul>
                 <p>
-                  We will never publish or share your passport or NID data
-                  without your explicit consent, except when required by law.
+                  We never publish or share your passport or NID data without
+                  your explicit consent, except when required by law.
                 </p>
               </article>
 
@@ -380,14 +435,14 @@
 
               <article id="legal">
                 <h3 class="section-title">7. Legal Compliance</h3>
-                <p>We operate in compliance with:</p>
-                <h4>Bangladesh Laws</h4>
+                <p><strong>We operate in compliance with:</strong></p>
+                <h4>Bangladesh Laws:</h4>
                 <ul>
                   <li>Overseas Employment and Migrants Act 2013</li>
                   <li>Overseas Employment and Migrants (Amendment) Act 2023</li>
                   <li>Emigration Ordinance 1982 and related rules</li>
                 </ul>
-                <h4>International Laws</h4>
+                <h4>International Laws:</h4>
                 <ul>
                   <li>GDPR (EU)</li>
                   <li>CCPA (California, USA)</li>
@@ -415,7 +470,6 @@
 
               <article id="cookies">
                 <h3 class="section-title">9. Cookies</h3>
-                <p>We use cookies to:</p>
                 <ul>
                   <li>Improve browsing experience</li>
                   <li>Analyze traffic and user behavior</li>
@@ -430,7 +484,6 @@
 
               <article id="rights">
                 <h3 class="section-title">10. Your Rights</h3>
-                <p>You have the right to:</p>
                 <ul>
                   <li>Access and review your personal data</li>
                   <li>Request correction or deletion</li>
@@ -454,7 +507,7 @@
                 <h3 class="section-title">12. Updates to This Policy</h3>
                 <p>
                   We may update this Privacy Policy periodically. Any changes
-                  will be posted on our Platform with a new "Last Updated" date.
+                  will be posted on our Platform with a new “Last Updated” date.
                 </p>
                 <p class="small-muted">Last Updated: October 26, 2025</p>
               </article>
@@ -465,18 +518,16 @@
                 <h3 class="section-title">13. Contact Us</h3>
                 <p>
                   If you have any questions, concerns, or complaints, please
-                  contact us at:
-                </p>
-                <p>
+                  contact us at
                   <a href="mailto:support@primeworksolutions.com"
                     >support@primeworksolutions.com</a
-                  >
+                  >.
                 </p>
               </article>
             </div>
           </div>
 
-          <!-- Mobile TOC collapse -->
+          <!-- Mobile TOC -->
           <div class="visible-xs visible-sm">
             <div class="panel panel-card">
               <div class="panel-body">
@@ -487,15 +538,12 @@
                 >
                   Show / Hide Table of Contents
                 </button>
-                <div id="mobileToc" class="collapse">
-                  <ul
-                    class="nav nav-pills nav-stacked"
-                    style="margin-top: 10px"
-                  >
+                <div id="mobileToc" class="collapse" style="margin-top: 10px">
+                  <ul class="nav nav-pills nav-stacked">
                     <li><a href="#info">1. Information We Collect</a></li>
                     <li><a href="#use">2. How We Use Your Information</a></li>
                     <li><a href="#storage">3. Storage & Security</a></li>
-                    <li><a href="#resume">4. Resume Sharing</a></li>
+                    <li><a href="#resume">4. Resume Information Sharing</a></li>
                     <li>
                       <a href="#nopersonal">5. No Personal Deal Policy</a>
                     </li>
