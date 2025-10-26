@@ -59,13 +59,9 @@
                       <li><a href="job-listing.html">Job Listing</a></li>
                       <li><a href="job-detail.html">Job Detail</a></li>
                       <li>
-                        <a href="candidate-listing.html">Candidate Listing</a>
-                      </li>
-                      <li>
                         <a href="candidate-detail.html">Candidate Detail</a>
                       </li>
                       <li><a href="company-detail.html">Company Profile</a></li>
-                      <li><a href="faqs.html">FAQs</a></li>
                     </ul>
                     <!-- dropdown end -->
                   </li>
@@ -140,283 +136,6 @@
     </div>
     <!-- Header end -->
 
-    <div class="listpgWraper">
-      <div class="container">
-        <!-- Job Header start -->
-        <div class="job-header">
-          <div class="jobinfo">
-            <div class="row">
-              <div class="col-md-8 col-sm-8">
-                <!-- Candidate Info -->
-                <div class="candidateinfo">
-                  <div class="userPic">
-                    <img src="images/employers/emplogo1.jpg" alt="" />
-                    <h4 style="margin-top: 30px" class="text-center">
-                      Count-0
-                    </h4>
-                  </div>
-                  <div class="title">Company Name</div>
-                  <div class="desi">Web Development Company</div>
-                  <div class="loctext">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i> 123
-                    Boscobel Street, NW8 8PS
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-4"></div>
-            </div>
-          </div>
-
-          <!-- Buttons -->
-          <div class="jobButtons">
-            <a href="#." class="btn apply"
-              ><i class="fa fa-paper-plane" aria-hidden="true"></i> Follow Us</a
-            >
-            <a href="#." class="btn"
-              ><i class="fa fa-floppy-o" aria-hidden="true"></i> Save This
-              Company</a
-            >
-            <a
-              href="#"
-              class="btn report"
-              data-toggle="modal"
-              data-target="#reportModal"
-            >
-              <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-              Report Abuse
-            </a>
-          </div>
-        </div>
-
-        <!-- Report Abuse Modal -->
-        <div id="reportModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button
-                  type="button"
-                  class="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title">Report Abuse</h4>
-              </div>
-              <div class="modal-body">
-                <form id="reportForm">
-                  <div class="form-group">
-                    <label for="reason">Reason</label>
-                    <select id="reason" class="form-control" required>
-                      <option value="">Select Reason</option>
-                      <option>Fake job</option>
-                      <option>Scam or payment request</option>
-                      <option>Misleading information</option>
-                      <option>Unresponsive company</option>
-                      <option>Job already filled / expired</option>
-                      <option>Inappropriate behavior or messages</option>
-                      <option>Asking for personal information</option>
-                      <option>Other</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="details">Details (optional)</label>
-                    <textarea
-                      id="details"
-                      class="form-control"
-                      placeholder="Enter description (optional)"
-                    ></textarea>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">
-                      Submit
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Job Detail start -->
-        <div class="row">
-          <div class="col-md-8">
-            <!-- About Employee start -->
-            <div class="job-header">
-              <div class="contentbox">
-                <h3>About Company</h3>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  pellentesque massa vel lorem fermentum fringilla. Pellentesque
-                  id est et neque blandit ornare malesuada a mauris. Lorem ipsum
-                  dolor sit amet, consectetur adipiscing elit. Sed sagittis,
-                  quam a fringilla congue, turpis turpis molestie ligula, ut
-                  laoreet elit arcu sed nulla. Sed at quam commodo, egestas
-                  turpis eget, fringilla dui. Etiam sit amet nulla metus. Etiam
-                  iaculis lobortis ultricies.
-                  <strong
-                    >Maecenas maximus magna a metus consectetur, vel fermentum
-                    nisl ultrices</strong
-                  >. Quisque eget ante id dui posuere ullamcorper ut molestie
-                  eros. Aliquam ultrices lacinia risus, at lacinia ante vehicula
-                  id. Nulla in lectus dignissim, egestas purus sit amet, mattis
-                  libero. Maecenas ullamcorper rutrum porta.
-                </p>
-                <ul>
-                  <li>
-                    In non augue eget purus placerat aliquet sit amet lobortis
-                    lacus.
-                  </li>
-                  <li>Curabitur interdum nisl quis placerat ornare.</li>
-                  <li>Curabitur ornare enim ac aliquam efficitur.</li>
-                  <li>
-                    Etiam volutpat leo et orci luctus, blandit accumsan arcu
-                    placerat.
-                  </li>
-                  <li>Proin egestas dui et pulvinar pellentesque.</li>
-                  <li>In ultricies nulla eget lacus tempor lobortis.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Opening Jobs start -->
-            <div class="relatedJobs">
-              <h3>Open Jobs</h3>
-              <ul class="searchList">
-                <!-- Job start -->
-                <li>
-                  <div class="row">
-                    <div class="col-md-8 col-sm-8">
-                      <div class="jobimg">
-                        <img src="images/jobs/jobimg.jpg" alt="Job Name" />
-                      </div>
-                      <div class="jobinfo">
-                        <h3><a href="#.">Technical Database Engineer</a></h3>
-                        <div class="companyName">
-                          <a href="#.">Datebase Management Company</a>
-                        </div>
-                        <div class="location">
-                          <label class="fulltime">Full Time</label> -
-                          <span>New York</span>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="listbtn"><a href="#.">Apply Now</a></div>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Fusce venenatis arcu est. Phasellus vel dignissim tellus.
-                    Aenean fermentum fermentum convallis.
-                  </p>
-                </li>
-                <!-- Job end -->
-
-                <!-- Job start -->
-                <li>
-                  <div class="row">
-                    <div class="col-md-8 col-sm-8">
-                      <div class="jobimg">
-                        <img src="images/jobs/jobimg.jpg" alt="Job Name" />
-                      </div>
-                      <div class="jobinfo">
-                        <h3><a href="#.">Technical Database Engineer</a></h3>
-                        <div class="companyName">
-                          <a href="#.">Datebase Management Company</a>
-                        </div>
-                        <div class="location">
-                          <label class="freelance">Freelance</label> -
-                          <span>New York</span>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="col-md-4 col-sm-4">
-                      <div class="listbtn"><a href="#.">Apply Now</a></div>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Fusce venenatis arcu est. Phasellus vel dignissim tellus.
-                    Aenean fermentum fermentum convallis.
-                  </p>
-                </li>
-                <!-- Job end -->
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <!-- Company Detail start -->
-            <div class="job-header">
-              <div class="jobdetail">
-                <h3>Company Detail</h3>
-                <ul class="jbdetail">
-                  <li class="row">
-                    <div class="col-md-6 col-xs-6">Total Employees</div>
-                    <div class="col-md-6 col-xs-6"><span>10-50</span></div>
-                  </li>
-                  <li class="row">
-                    <div class="col-md-6 col-xs-6">Established In</div>
-                    <div class="col-md-6 col-xs-6"><span>2008</span></div>
-                  </li>
-                  <li class="row">
-                    <div class="col-md-6 col-xs-6">Current jobs</div>
-                    <div class="col-md-6 col-xs-6"><span>10</span></div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- Contact Company start -->
-            <div class="job-header">
-              <div class="jobdetail">
-                <h3>Sent Query</h3>
-                <div class="formpanel">
-                  <div class="formrow">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div class="formrow">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Your Email"
-                    />
-                  </div>
-                  <div class="formrow">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Phone"
-                    />
-                  </div>
-                  <div class="formrow">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Subject"
-                    />
-                  </div>
-                  <div class="formrow">
-                    <textarea
-                      class="form-control"
-                      placeholder="Message"
-                    ></textarea>
-                  </div>
-                  <input type="submit" class="btn" value="Submit" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Footer -->
     <footer class="footerWrap">
       <div class="container">
@@ -442,10 +161,10 @@
           <div class="col-lg-3 col-md-6 footer-col">
             <h5>Quick Links</h5>
             <ul class="list-unstyled quicklinks">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Contact us</a></li>
-              <li><a href="#">Job Details</a></li>
+              <li><a href="/index.html">Home</a></li>
+              <li><a href="/about-us.html">About us</a></li>
+              <li><a href="contact-us.html">Contact us</a></li>
+              <li><a href="/job-detail.html">Job Details</a></li>
             </ul>
           </div>
 
@@ -453,10 +172,10 @@
           <div class="col-lg-3 col-md-6 footer-col">
             <h5>More Links</h5>
             <ul class="list-unstyled quicklinks">
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Post a Job</a></li>
-              <li><a href="#">Find a Job</a></li>
-              <li><a href="#">Partners</a></li>
+              <li><a href="/blog-detail.html">Blog</a></li>
+              <li><a href="/post-job.html">Post a Job</a></li>
+              <li><a href="/job-listing.html">Find a Job</a></li>
+              <li><a href="/404.html">Partners</a></li>
             </ul>
           </div>
 
@@ -465,9 +184,9 @@
             <h5>Support</h5>
             <ul class="list-unstyled quicklinks">
               <li><a href="#">FAQ</a></li>
-              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="/privacy-poilicy.html">Privacy Policy</a></li>
               <li><a href="#">Terms & Services</a></li>
-              <li><a href="#">Affiliate Program</a></li>
+              <li><a href="/404.html">Affiliate Program</a></li>
             </ul>
           </div>
         </div>
