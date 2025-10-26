@@ -20,11 +20,103 @@
     <!-- Custom Style -->
     <link href="css/main.css" rel="stylesheet" />
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
+    <style>
+      /* Main Form Container */
+      .form-section {
+        background: #ffffff;
+        padding: 30px 30px;
+        border-radius: 8px;
+        max-width: 850px;
+        margin: 0 auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Inputs */
+      .form-control,
+      select,
+      textarea {
+        height: 48px;
+        border-radius: 5px;
+        border: 1px solid #cfcfcf;
+        margin-top: 8px;
+        margin-bottom: 18px;
+        font-size: 14px;
+        padding: 10px 12px;
+        transition: 0.3s ease;
+      }
+
+      textarea {
+        height: auto;
+      }
+
+      /* Focus Effects */
+      .form-control:focus {
+        border-color: #5468ff;
+        box-shadow: 0 0 6px rgba(84, 104, 255, 0.35);
+      }
+
+      /* Headings */
+      h3 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #222;
+      }
+
+      .salary-range .small-input {
+        width: 48%;
+        display: inline-block;
+      }
+
+      /* Text Labels */
+      .form-group label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #444;
+      }
+
+      /* Radio & Checkbox */
+      .radio-custom,
+      .checkbox-custom {
+        font-weight: 500;
+        color: #555;
+        margin-right: 12px;
+      }
+
+      /* Submit Button */
+      .btn-submit {
+        background: #1c32f1;
+        border: none;
+        height: 48px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        width: 100%;
+        border-radius: 5px;
+        margin-top: 10px;
+        transition: 0.3s;
+      }
+
+      .btn-submit:hover {
+        background: #0e1dbd;
+      }
+
+      /* Responsive Improvements */
+      @media (max-width: 768px) {
+        .form-section {
+          padding: 25px 20px;
+          max-width: 100%;
+        }
+        .form-control,
+        select,
+        textarea {
+          font-size: 13px;
+          height: 45px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Header start -->
@@ -54,24 +146,14 @@
             <div class="navbar navbar-default" role="navigation">
               <div class="navbar-collapse collapse" id="nav-main">
                 <ul class="nav navbar-nav">
-                  <li class="dropdown">
-                    <a href="index.html">Home <span class="caret"></span></a>
-                    <!-- dropdown start -->
-                    <ul class="dropdown-menu">
-                      <li><a href="index.html">Home Static Image</a></li>
-                      <li><a href="index2.html">Home With Map</a></li>
-                      <li><a href="index3.html">Home With Slider</a></li>
-                    </ul>
-                    <!-- dropdown end -->
+                  <li>
+                    <a href="index.html">Home</a>
                   </li>
                   <li><a href="about-us.html">About us</a></li>
-                  <li class="dropdown active">
+                  <li class="dropdown">
                     <a href="#.">Pages <span class="caret"></span></a>
                     <!-- dropdown start -->
                     <ul class="dropdown-menu">
-                      <li><a href="about-us.html">About Us</a></li>
-                      <li><a href="login.html">Login</a></li>
-                      <li><a href="register.html">Register</a></li>
                       <li><a href="job-listing.html">Job Listing</a></li>
                       <li><a href="job-detail.html">Job Detail</a></li>
                       <li>
@@ -81,29 +163,12 @@
                         <a href="candidate-detail.html">Candidate Detail</a>
                       </li>
                       <li><a href="company-detail.html">Company Profile</a></li>
-                      <li><a href="edit-profile.html">Edit Profile</a></li>
-                      <li class="active">
-                        <a href="post-job.html">Post a Job</a>
-                      </li>
-                      <li><a href="packages.html">Packages</a></li>
                       <li><a href="faqs.html">FAQs</a></li>
-                      <li><a href="404.html">404 Page</a></li>
-                      <li><a href="typography.html">Typography</a></li>
                     </ul>
                     <!-- dropdown end -->
                   </li>
-                  <li class="dropdown">
-                    <a href="blog.html">Blog <span class="caret"></span></a>
-                    <!-- dropdown start -->
-                    <ul class="dropdown-menu">
-                      <li><a href="blog.html">Blog List</a></li>
-                      <li><a href="blog-detail.html">Blog Detail</a></li>
-                      <li><a href="blog-grid.html">Blog Grid</a></li>
-                      <li>
-                        <a href="blog-full-width.html">Blog Grid Full Width</a>
-                      </li>
-                    </ul>
-                    <!-- dropdown end -->
+                  <li>
+                    <a href="blog-detail.html">Blog</a>
                   </li>
                   <li><a href="contact-us.html">Contact</a></li>
                   <li class="postjob">
@@ -111,6 +176,53 @@
                   </li>
                   <li class="jobseeker">
                     <a href="candidate-listing.html">Job Seeker</a>
+                  </li>
+                  <li class="dropdown userbtn">
+                    <a href=""
+                      ><img
+                        src="images/candidates/01.jpg"
+                        alt=""
+                        class="userimg"
+                    /></a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="login.html">
+                          <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+                        </a>
+                      </li>
+                      <li>
+                        <a href="register.html">
+                          <i class="fa fa-user-plus" aria-hidden="true"></i>
+                          Register
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="dashboard.html"
+                          ><i class="fa fa-tachometer" aria-hidden="true"></i>
+                          Dashboard</a
+                        >
+                      </li>
+                      <li>
+                        <a href="edit-profile.html"
+                          ><i class="fa fa-pencil" aria-hidden="true"></i> Edit
+                          Profile</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-briefcase" aria-hidden="true"></i> My
+                          Jobs</a
+                        >
+                      </li>
+                      <li role="separator" class="divider"></li>
+                      <li>
+                        <a href="#"
+                          ><i class="fa fa-sign-out" aria-hidden="true"></i>
+                          Logout</a
+                        >
+                      </li>
+                    </ul>
                   </li>
                 </ul>
                 <!-- Nav collapes end -->
@@ -126,197 +238,181 @@
     </div>
     <!-- Header end -->
 
-    <!-- Page Title start -->
-    <div class="pageTitle">
-      <div class="container">
+    <!-- Form section start -->
+    <div class="container">
+      <div class="form-section">
+        <h3><b>Job Information</b></h3>
+        <hr />
+
         <div class="row">
-          <div class="col-md-6 col-sm-6">
-            <h1 class="page-heading">Post Job</h1>
+          <div class="col-md-12 form-group">
+            <label>Job Title</label>
+            <input type="text" class="form-control" placeholder="Job Title" />
           </div>
-          <div class="col-md-6 col-sm-6">
-            <div class="breadCrumb">
-              <a href="#.">Home</a> / <span>Post Job</span>
+
+          <div class="col-md-6 form-group">
+            <label>Application Deadline</label>
+            <input type="date" class="form-control" />
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>No of Vacancies</label>
+            <input type="number" class="form-control" placeholder="Ex: 3" />
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Job Category</label>
+            <select class="form-control">
+              <option>Select Category</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Salary Range</label>
+            <div class="salary-range d-flex gap-2">
+              <input
+                type="number"
+                class="form-control small-input"
+                placeholder="Min"
+              />
+              <input
+                type="number"
+                class="form-control small-input"
+                placeholder="Max"
+              />
             </div>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Currency</label>
+            <select class="form-control">
+              <option>BDT</option>
+              <option>USD</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Working Shift</label>
+            <select class="form-control">
+              <option>Select Shift</option>
+              <option>Day</option>
+              <option>Night</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Working Hours</label>
+            <input type="text" class="form-control" placeholder="Ex: 8 Hours" />
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Employment Type</label>
+            <select class="form-control">
+              <option>Full Time</option>
+              <option>Permanent</option>
+              <option>Contract</option>
+            </select>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Job Location</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="City / Country"
+            />
+          </div>
+
+          <div class="col-md-12 form-group">
+            <label>Job Description</label>
+            <textarea
+              class="form-control"
+              rows="4"
+              placeholder="Describe job (Gemini API)"
+            ></textarea>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Skills</label>
+            <textarea
+              class="form-control"
+              rows="3"
+              placeholder="Required Skills"
+            ></textarea>
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Benefits</label>
+            <textarea
+              class="form-control"
+              rows="3"
+              placeholder="Benefits Description"
+            ></textarea>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label>Accommodation</label><br />
+            <label class="radio-custom"
+              ><input type="radio" name="accom" /> Yes</label
+            >
+            <label class="radio-custom"
+              ><input type="radio" name="accom" /> No</label
+            >
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label>Food</label><br />
+            <label class="radio-custom"
+              ><input type="radio" name="food" /> Yes</label
+            >
+            <label class="radio-custom"
+              ><input type="radio" name="food" /> No</label
+            >
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label>Gender</label>
+            <select class="form-control">
+              <option>Male</option>
+              <option>Female</option>
+              <option>Both</option>
+            </select>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label>Education</label>
+            <select class="form-control">
+              <option>SSC</option>
+              <option>HSC</option>
+              <option>B.SC</option>
+            </select>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label>Years of Experience</label>
+            <select class="form-control">
+              <option>Select</option>
+            </select>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label>Age</label>
+            <input type="text" class="form-control" placeholder="Ex: 20 - 35" />
+          </div>
+
+          <div class="col-md-12 form-group">
+            <label class="checkbox-custom">
+              <input type="checkbox" /> I accept the privacy policy
+            </label>
+          </div>
+
+          <div class="col-md-12">
+            <button class="btn btn-submit">POST JOB</button>
           </div>
         </div>
       </div>
     </div>
-    <!-- Page Title End -->
-
-    <div class="listpgWraper">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <div class="userccount">
-              <div class="formpanel">
-                <!-- Job Information -->
-                <h5>Job Information</h5>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="formrow">
-                      <input
-                        type="text"
-                        name="jobtitle"
-                        class="form-control"
-                        placeholder="Job Title"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="formrow">
-                      <select class="form-control" name="indus">
-                        <option>Industry Area</option>
-                        <option>IT</option>
-                        <option>Accounts</option>
-                        <option>Marketing</option>
-                        <option>Manager</option>
-                        <option>Banking</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="formrow">
-                      <select class="form-control" name="msalary">
-                        <option>Monthly Salary</option>
-                        <option>$500 - $999</option>
-                        <option>$999 - $1499</option>
-                        <option>$1500 - $1999</option>
-                        <option>$2000 - $3000</option>
-                        <option>$3000+</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="formrow">
-                      <select class="form-control" name="location">
-                        <option>Location</option>
-                        <option>New York</option>
-                        <option>Atlanta</option>
-                        <option>California</option>
-                        <option>Verginia</option>
-                        <option>San Joes</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="formrow">
-                      <select class="form-control" name="empstatus">
-                        <option>Employment Status</option>
-                        <option>Permanent</option>
-                        <option>Contract</option>
-                        <option>Freelance</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="formrow">
-                      <select class="form-control" name="emptype">
-                        <option>Employment Type</option>
-                        <option>Manager</option>
-                        <option>Junior Designer</option>
-                        <option>Senior Developer</option>
-                        <option>Mid Level Designer</option>
-                        <option>Frontend Developer</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="formrow">
-                      <select class="form-control" name="positions">
-                        <option>Positions</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="formrow">
-                      <select class="form-control" name="experience">
-                        <option>Experience</option>
-                        <option>Fresh</option>
-                        <option>1 Year</option>
-                        <option>2 Years</option>
-                        <option>3 Years</option>
-                        <option>4 Years</option>
-                        <option>5 Years</option>
-                        <option>6 Years</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-3">
-                    <div class="formrow">
-                      <select class="form-control" name="gender">
-                        <option>Gender</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Any</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="formrow">
-                      <select class="form-control" name="nationality">
-                        <option>Nationality</option>
-                        <option>United States</option>
-                        <option>Australia</option>
-                        <option>United Kingdom</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="formrow">
-                      <ul class="row featchoose">
-                        <li class="col-md-4">
-                          <input type="checkbox" name="" /> Your Info
-                        </li>
-                        <li class="col-md-4">
-                          <input type="checkbox" name="" /> Your Info
-                        </li>
-                        <li class="col-md-4">
-                          <input type="checkbox" name="" /> Your Info
-                        </li>
-                        <li class="col-md-4">
-                          <input type="checkbox" name="" /> Your Info
-                        </li>
-                        <li class="col-md-4">
-                          <input type="checkbox" name="" /> Your Info
-                        </li>
-                        <li class="col-md-4">
-                          <input type="checkbox" name="" /> Your Info
-                        </li>
-                        <li class="col-md-4">
-                          <input type="radio" name="" /> Your radio Label
-                        </li>
-                        <li class="col-md-4">
-                          <input type="radio" name="" /> Your radio Label
-                        </li>
-                        <li class="col-md-4">
-                          <input type="radio" name="" /> Your radio Label
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="formrow">
-                      <textarea
-                        class="form-control"
-                        name="jobdetail"
-                        placeholder="Job Detail"
-                      ></textarea>
-                    </div>
-                  </div>
-                </div>
-                <br />
-                <input type="submit" class="btn" value="Post Job" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Form section end -->
 
     <!--Footer-->
     <div class="footerWrap">
