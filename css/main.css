@@ -1743,7 +1743,6 @@ a.wit-btn {
 *************************************************/
 .listpgWraper {
   background: #f0f0f0;
-  padding: 50px 0;
   min-height: 400px;
 }
 .pageSearch {
@@ -2342,9 +2341,6 @@ a.wit-btn {
 /************************************************
            == Cms Pages css==
 *************************************************/
-.inner-page {
-  padding: 50px 0;
-}
 .inner-page .title {
   text-align: center;
   margin-bottom: 40px;
@@ -2689,9 +2685,6 @@ a.wit-btn {
 /***************************
 	About Us
 ****************************/
-.about-wraper {
-  padding: 56px 0;
-}
 .about-wraper h2 {
   font-size: 36px;
   color: #263bd6;
@@ -3582,7 +3575,7 @@ blockquote:after {
   .postimg {
     margin-top: 15px;
   }
-  .about-wraper,
+
   .textrow {
     padding: 50px 0;
   }
